@@ -1,0 +1,13 @@
+#add_payment_method .wc-proceed-to-checkout a.checkout-button, .woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt{
+    background: #172A53 !important;
+}
+
+.wpmc-step-item.wpmc-step-login{
+    width: calc(100% - 400px);
+    float: left;
+}
+
+.woocommerce-MyAccount-navigation-link--my-pre-orders,
+.woocommerce-MyAccount-navigation-link--customer-logout{
+    display: none !important;
+}

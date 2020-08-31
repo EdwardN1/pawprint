@@ -1,0 +1,349 @@
+@media only screen and (max-width: 425px) {
+
+  h1{
+    font-size: 1.4em !important;
+  }
+
+  #page{
+    padding: 0px;
+  }
+
+  .header-top-section{
+    padding: 0 15px;
+  }
+
+  body.home header#masthead{
+    margin-bottom: -35px;
+  }
+
+  header#masthead .header-top-section .site-branding{
+    width: 150px;
+
+    *{
+      width: 100%;
+    }
+
+  }
+
+  header#masthead .header-top-section .site-branding .custom-logo-link{
+    width: 100%;
+  }
+
+  header #site-navigation{
+    width: calc(100% - 30px);
+    position: absolute;
+    top: -1000px;
+    left: 15px;
+    z-index: 10000;
+    transition: top ease-in-out 500ms;
+
+    &.moved{
+      top: 128px;
+    }
+
+    .textwidget{
+      width: 100%;
+      display: block;
+      clear: both;
+    }
+
+    ul{
+      display: block !important;
+      clear: both;
+      width: 100%;
+
+      li{
+        display: block !important;
+        clear: both;
+        padding: 0px;
+        flex: initial;
+        width: 100%;
+        text-align: left;
+
+        a{
+          display: block !important;
+          clear: both;
+          padding: 15px;
+        }
+
+      }
+
+    }
+
+    form{
+      border-top: 1px solid #FFF;
+      margin-top: 15px;
+      display: block !important;
+      clear: both;
+      padding: 15px;
+
+      &:after{
+        display: block;
+        clear: both;
+        content: ' ';
+      }
+
+      input[type="search"],
+      input[type="text"]{
+        width: calc(100% - 40px);
+        float: left;
+        border: 0px;
+        padding: 0 15px;
+      }
+
+      input[type="submit"]{
+        width: 40px;
+        height: 40px;
+        border: 0px;
+        border-left: 1px solid $primary-blue;
+        border-radius: 0px !important;
+        padding: 10px;
+        background: #FFF url('https://pawprintfamily.com/wp-content/uploads/2020/02/search-icon.png') 50% 50% no-repeat !important;
+        color: transparent;
+        background-size: 60% auto !important;
+      }
+
+    }
+
+  }
+
+  li.has-dropdown .menu-dropdown .left{
+    width: 100%;
+  }
+
+  header#masthead .header-top-section .search-container{
+    display: none;
+  }
+
+  header#masthead .header-top-section .shop-actions {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 155px);
+    text-align: right;
+  }
+
+  header#masthead .header-top-section .shop-actions ul{
+    display: inline-block;
+  }
+
+  li.has-dropdown .menu-dropdown{
+    width: 100%;
+    display: none;
+    position: relative;
+    top: 0px;
+    left: 0px;
+  }
+
+  li.has-dropdown .menu-dropdown ul,
+  li.has-dropdown .menu-dropdown .right{
+    width: 100%;
+    display: block;
+    clear: both;
+    min-height: 10px;
+  }
+
+  header#masthead .header-top-section .shop-actions.desktop{
+    display: none;
+  }
+
+  header#masthead .header-top-section .shop-actions.mobile{
+    display: inline-block;
+
+    .mobile_menu_toggle{
+      width: 25px;
+      height: 25px;
+      position: relative;
+      display: block;
+
+      span{
+        width: 20px;
+        height: 3px;
+        background: $badges;
+        position: absolute;
+        top: calc(50% - 1.5px);
+        left: 0px;
+
+        &:before,
+        &:after{
+          width: 100%;
+          height: 100%;
+          display: block;
+          clear: both;
+          content: ' ';
+          background: $badges;
+          position: absolute;
+          left: 0px;
+        }
+
+        &:before{ top: -7px; }
+        &:after{ top: 7px; }
+
+      }
+    }
+
+  }
+
+  .pawprint_category_filter_container,.activity-filter{
+    display: none;
+    margin: -10px 0 10px;
+  }
+
+  .filter_mobile_toggle{
+    display: block;
+    clear: both;
+    margin: 0 0 10px;
+    padding: 5px 10px;
+    background: $primary-blue;
+    color: #FFF !important;
+    font-family: 'billy-regular';
+    text-align: center;
+    text-decoration: none !important;
+  }
+
+  .pawprint_category_filter_container label{
+    max-width: 72px;
+  }
+
+  .page-banner{
+
+    .wpb_single_image{
+      display: none;
+    }
+
+  }
+
+  .banner_part_2{
+    margin-bottom: -20px;
+  }
+
+  .activity-filter .more-filters div.field{
+    width: 100% !important;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  #breadcrumbs{
+    display: none;
+  }
+
+  body.single-product #breadcrumbs{
+    display: block;
+  }
+
+  #trails-search-form label{
+    width: 100%;
+    display: block;
+    clear: both;
+    margin: 0 0 10px;
+    padding: 0 15px;
+  }
+
+  .top-pagination{
+    top: 0px;
+    margin: 0px 0 20px !important;
+  }
+
+  article.ppb-activities .left-section,
+  article.ppb-activities .sidebar{
+    width: 100%;
+    display: block;
+    clear: both;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  article.ppb-activities .left-section{
+    width: calc(100% + 30px);
+    margin: 0 -15px;
+  }
+
+  .activity_actions{
+    display: block;
+    clear: both;
+    padding: 0px;
+  }
+
+  .activity_actions a,
+  .activity_actions span{
+    width: 100%;
+    margin: 0px;
+    display: block;
+    clear: both;
+  }
+
+  h2{
+    font-size: 20px !important;
+  }
+
+  .checkout, .wpmc-nav-wrapper,
+  .ppf_side_order_review{
+    width: 100%;
+    display: block;
+    clear: both;
+    margin-bottom: 10px;
+  }
+
+  .woocommerce table.shop_table .product-name{
+    width: auto;
+  }
+
+  .woocommerce table.shop_table strong, .shipping-date, .woofc-area strong{
+    font-size: 10px !important;
+  }
+
+  strong.shipping-date{
+    text-align: center !important;
+  }
+
+  .woocommerce-MyAccount-navigation ul li{
+    width: 100%;
+    display: block;
+    clear: both;
+    margin: 0 auto;
+    float: none;
+  }
+
+  .woocommerce-MyAccount-navigation ul{
+    margin: 0 0 20px;
+    display: block;
+    clear: both;
+  }
+
+  .myaccount_single_order_details,
+  .myaccount_single_order_addresses{
+    display: block;
+  }
+
+  .myaccount_single_order_details div.item{
+    flex: initial;
+    display: block;
+    clear: both;
+    margin: 0 0 10px;
+  }
+
+  .myaccount_single_order_addresses .address{
+    flex: initial;
+    display: block;
+    clear: both;
+    margin: 0 0 10px;
+  }
+
+  .mobile-account{
+    display: block;
+    padding: 15px 15px 25px;
+
+    a{
+      color: #FFF;
+      font-size: 16px;
+
+      img{
+        display: inline-block;
+        vertical-align: middle;
+        width: 16px;
+      }
+
+    }
+
+  }
+
+}

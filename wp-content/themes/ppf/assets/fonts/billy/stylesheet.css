@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'billy-regular';
+    src: url("/billy-regular-webfont.eot");
+    src: url("billy-regular-webfont.eot?#iefix") format("embedded-opentype"), url("billy-regular-webfont.woff2") format("woff2"), url("billy-regular-webfont.woff") format("woff"), url("billy-regular-webfont.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal; }
+@font-face {
+    font-family: 'billy-light';
+    src: url("billy-light-webfont.eot");
+    src: url("billy-light-webfont.eot?#iefix") format("embedded-opentype"), url("billy-light-webfont.woff2") format("woff2"), url("billy-light-webfont.woff") format("woff"), url("billy-light-webfont.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal; }
+@font-face {
+    font-family: 'billy-semibold';
+    src: url("billy-semibold-webfont.eot");
+    src: url("billy-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("billy-semibold-webfont.woff2") format("woff2"), url("billy-semibold-webfont.woff") format("woff"), url("billy-semibold-webfont.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal; }
+@font-face {
+    font-family: 'billy-bold';
+    src: url("billy-bold-webfont.eot");
+    src: url("billy-bold-webfont.eot?#iefix") format("embedded-opentype"), url("billy-bold-webfont.woff2") format("woff2"), url("billy-bold-webfont.woff") format("woff"), url("billy-bold-webfont.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal; }

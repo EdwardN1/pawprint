@@ -1,0 +1,275 @@
+footer{
+
+  &.site-footer{
+    padding: 40px 0px;
+    background: $badges;
+    text-align: center;
+
+    h2{
+      color: #FFF;
+      display: block;
+      clear: both;
+    }
+
+    img{
+      width: 30px;
+      height: auto;
+      margin: 10px 5px 0px;
+    }
+
+    p{
+      margin: 0px;
+    }
+
+    .widget{
+      margin: 0px;
+    }
+
+  }
+
+  &.copyright{
+    padding: 20px 0px 20px;
+    background: $primary-blue;
+    text-align: center;
+
+    .widget{ margin: 0px; padding: 0px; }
+
+    p{
+      color: #FFF;
+      text-decoration: none !important;
+      font-size: 12px;
+      line-height: 1em;
+      margin: 5px 0 0;
+    }
+
+    ul{
+      margin: 0px;
+      padding: 0px;
+      display: inline-block;
+
+      li{
+        display: inline;
+        margin: 0 7.5px;
+        padding: 0px;
+
+        a{
+          color: #FFF;
+          text-decoration: none !important;
+          font-size: 12px;
+          line-height: 1em;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.footer-top-part{
+  margin: 20px 0 0 0;
+  display: block;
+  clear: both;
+
+  &:after{
+    display: block;
+    clear: both;
+    content: ' ';
+  }
+
+  .left{
+    width: calc(100% - 550px);
+    float: left;
+
+    .block{
+      width: 100%;
+      height: 300px;
+
+      &:first-of-type{
+        background: $trust;
+        height: 350px;
+
+        &.badges-block{
+          background: $primary-blue;
+        }
+
+        &:after{
+          display: block;
+          clear: both;
+          content: ' ';
+        }
+
+        .map-block{
+          width: 250px;
+          height: 100%;
+          display: block;
+          float: right;
+          background: url("https://pawprintfamily.com/wp-content/uploads/2020/02/atlas.jpg") 50% 50% no-repeat;
+          background-size: cover !important;
+        }
+
+        .content{
+          padding: 20px;
+          width: calc(100% - 250px);
+          height: 100%;
+          display: block;
+          float: left;
+
+          p{
+            color: #FFF;
+            margin-bottom: 30px;
+          }
+
+          .widget{
+            margin: 0px;
+            min-height: 243px;
+          }
+
+        }
+
+      }
+
+      &:last-of-type{
+        padding: 10px 10px 10px;
+        height: 250px;
+
+        &:after{
+          display: block;
+          clear: both;
+          content: ' ';
+        }
+
+        .left{
+          width: 200px;
+          float: left;
+          position: relative;
+          padding: 20px 0 0 0;
+
+          h2{
+            color: $primary-blue;
+            position: relative;
+            z-index: 100;
+          }
+
+          img{
+            width: 80%;
+            height: auto;
+            display: block;
+            clear: both;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+          }
+
+        }
+
+        .right{
+          width: calc(100% - 230px);
+          float: right;
+          padding: 10px;
+
+          p{
+            margin: 0px;
+            font-size: 14px;
+            color: $primary-blue;
+
+            &.content{
+              position: relative;
+              padding-left: 30px;
+              padding-right: 30px;
+
+              &:before,
+              &:after{
+                width: 20px;
+                height: 17px;
+                background: url("https://pawprintfamily.com/wp-content/uploads/2020/02/quote-left.png");
+                content: ' ';
+                display: block;
+                background-size: cover !important;
+                position: absolute;
+              }
+
+              &:before{
+                top: 0px;
+                left: 0px;
+              }
+
+              &:after{
+                bottom: 0px;
+                right: 0px;
+                transform: rotate(-180deg);
+              }
+
+            }
+
+          }
+
+        }
+
+        hr{
+          margin: 10px 0px;
+          background-color: $primary-blue !important;
+        }
+
+      }
+
+    }
+
+  }
+
+  .right{
+    width: 550px;
+    float: right;
+
+    .block{
+      height: 600px;
+      background: url('https://pawprintfamily.com/wp-content/uploads/2020/02/too-cool.jpg') 50% 50% no-repeat;
+      background-size: cover !important;
+
+      .subscribe-form{
+        padding: 40px 80px;
+        margin: 0px;
+        padding-top: 190px;
+        display: block;
+        clear: both;
+        text-align: center;
+
+        h3{
+          margin: 0px;
+          font-size: 30px;
+          color: #FFF;
+        }
+
+        p{
+          color: #FFF;
+        }
+
+        input{
+          width: 100%;
+          border: 0px;
+          padding: 0 10px;
+          font-family: 'Tajawal';
+        }
+
+        input[type="submit"]{
+          width: 100%;
+          display: block;
+          clear: both;
+          padding: 10px;
+          background: $badges !important;
+          border-radius: 0px !important;
+          font-family: 'billy-regular';
+          color: #FFF !important;
+          font-size: 1rem !important;
+          border: 0px;
+          box-sizing: border-box;
+        }
+
+      }
+
+    }
+
+  }
+
+}
