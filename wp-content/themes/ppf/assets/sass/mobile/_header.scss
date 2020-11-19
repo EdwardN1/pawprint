@@ -1,7 +1,7 @@
 @media only screen and (max-width: 425px) {
 
   h1{
-    font-size: 1.4em !important;
+    font-size: 1.2em !important;
   }
 
   #page{
@@ -30,10 +30,10 @@
   }
 
   header #site-navigation{
-    width: calc(100% - 30px);
+    width: calc(100% - 0px);
     position: absolute;
     top: -1000px;
-    left: 15px;
+    left: 0px;
     z-index: 10000;
     transition: top ease-in-out 500ms;
 
@@ -296,11 +296,10 @@
   }
 
   .woocommerce-MyAccount-navigation ul li{
-    width: 100%;
+    width: 50%;
     display: block;
-    clear: both;
     margin: 0 auto;
-    float: none;
+    float: left;
   }
 
   .woocommerce-MyAccount-navigation ul{
@@ -311,6 +310,18 @@
 
   .myaccount_single_order_details,
   .myaccount_single_order_addresses{
+    display: block;
+  }
+
+  .woocommerce-Address{
+    width: 100% !important;
+    display: block;
+    clear: both;
+    height: auto;
+  }
+
+  .account_profile_pic_toggle{
+    margin: 0 auto;
     display: block;
   }
 
@@ -330,20 +341,26 @@
 
   .mobile-account{
     display: block;
-    padding: 15px 15px 25px;
+    padding: 0px 15px 25px;
 
     a{
       color: #FFF;
       font-size: 16px;
+      font-family: 'billy-regular';
 
       img{
         display: inline-block;
         vertical-align: middle;
         width: 16px;
+        float: right;
       }
 
     }
 
+  }
+
+  .woocommerce form .form-row{
+    width: 100%;
   }
 
 }

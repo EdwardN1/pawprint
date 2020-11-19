@@ -38,7 +38,7 @@
 
         <tfoot>
         <tr>
-            <td colspan="3"><input type="text" required name="_new_pack_name" placeholder="Create new Challenge Pack"></td>
+            <td colspan="3"><input type="text" required name="_new_pack_name" placeholder="Type here to create a new custom challenge pack"></td>
             <td style="text-align: center !important;">
                 <button type="submit" style="background:none !important;"><img width="20px" src="<?php echo get_template_directory_uri().'/assets/icons/noun_tick_2495473.svg' ?>" alt=""></button>
             </td>
@@ -65,8 +65,9 @@
 
             var json = JSON.parse(res);
             var id = json.id;
+            var uid = json.uid;
 
-            window.location.reload();
+            window.location.href = $('link[rel="canonical"]').attr('href')+'/packs/?action=edit&id='+uid;
 
         });
 

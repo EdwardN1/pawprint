@@ -88,7 +88,7 @@
                             <img src="<?=get_site_url()?>/wp-content/uploads/2020/02/account-icon.png" alt="">
                             Login
                         </a>
-                        <a href="<?=get_site_url()?>/my-account/" class="lrm-show-if-logged-in">
+                        <a href="<?=get_site_url()?>/my-account/edit-account/" class="lrm-show-if-logged-in">
                             <img src="<?=get_site_url()?>/wp-content/uploads/2020/02/account-icon.png" alt="">
                             My Account
                         </a>
@@ -100,6 +100,9 @@
                         </a>
                     </li>
                 </ul>
+                <?php if(is_user_logged_in()){ $userdata = get_userdata(get_current_user_id()); ?>
+                    <p>Hello <?=$userdata->first_name?> (not you? <a href="<?=wc_logout_url()?>">Log Out</a>)</p>
+                <?php } ?>
             </div>
             <div class="shop-actions mobile">
                 <ul>
@@ -150,14 +153,17 @@
                     <img src="<?=get_site_url()?>/wp-content/uploads/2020/02/account-icon.png" alt="">
                     Login
                 </a>
-                <a href="<?=get_site_url()?>/my-account/" class="lrm-show-if-logged-in">
+                <a href="<?=get_site_url()?>/my-account/edit-account/" class="lrm-show-if-logged-in">
                     <img src="<?=get_site_url()?>/wp-content/uploads/2020/02/account-icon.png" alt="">
                     My Account
                 </a>
+                <?php if(is_user_logged_in()){ $userdata = get_userdata(get_current_user_id()); ?>
+                    <a href="<?=wp_logout_url()?>">Hello <?=$userdata->first_name?> (not you? Log Out)</a>
+                <?php } ?>
             </div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
-
+    <div class="menu-black-block"></div>
 
 	<div id="content" class="site-content">

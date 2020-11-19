@@ -48,6 +48,46 @@ if(isset($_GET['filter'])){
 
             break;
 
+        case 'tales' :
+
+            $posts = new WP_Query(
+                array(
+                    'post_type' => 'product' ,
+                    'posts_per_page' => -1,
+                    's' => $_GET['s'] ,
+                    'paged' => $paged,
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'terms' => array('tales'),
+                            'field' => 'slug'
+                        )
+                    )
+                )
+            );
+
+            break;
+
+        case 'trails' :
+
+            $posts = new WP_Query(
+                array(
+                    'post_type' => 'product' ,
+                    'posts_per_page' => -1,
+                    's' => $_GET['s'] ,
+                    'paged' => $paged,
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'terms' => array('trails'),
+                            'field' => 'slug'
+                        )
+                    )
+                )
+            );
+
+            break;
+
         case 'activities' :
 
             $posts = new WP_Query(array('post_type' => 'ppb-activities' , 'posts_per_page' => -1 , 's' => $_GET['s'] , 'paged' => $paged));
@@ -58,7 +98,88 @@ if(isset($_GET['filter'])){
 
 }else{
 
-    $posts = new WP_Query(array('s' => $_GET['s'] , 'posts_per_page' => -1));
+    $activities = new WP_Query(
+        array(
+            'post_type' => 'ppb-activities',
+            'fields' => 'ids',
+            's' => $_GET['s'] ,
+            'posts_per_page' => -1
+        )
+    );
+
+    $free = new WP_Query(
+        array(
+            'post_type' => 'product',
+            'fields' => 'ids',
+            's' => $_GET['s'] ,
+            'posts_per_page' => -1,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'terms' => array('free-resources'),
+                    'field' => 'slug'
+                )
+            )
+        )
+    );
+
+    $badges = new WP_Query(
+        array(
+            'post_type' => 'product',
+            'fields' => 'ids',
+            's' => $_GET['s'] ,
+            'posts_per_page' => -1,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'terms' => array('badges'),
+                    'field' => 'slug'
+                )
+            )
+        )
+    );
+
+    $tales = new WP_Query(
+        array(
+            'post_type' => 'product',
+            'fields' => 'ids',
+            's' => $_GET['s'] ,
+            'posts_per_page' => -1,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'terms' => array('tales'),
+                    'field' => 'slug'
+                )
+            )
+        )
+    );
+
+    $trails = new WP_Query(
+        array(
+            'post_type' => 'product',
+            'fields' => 'ids',
+            's' => $_GET['s'] ,
+            'posts_per_page' => -1,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_cat',
+                    'terms' => array('trails'),
+                    'field' => 'slug'
+                )
+            )
+        )
+    );
+
+    $ids = array();
+
+    $ids = array_merge($activities->posts , $ids);
+    $ids = array_merge($trails->posts , $ids);
+    $ids = array_merge($tales->posts , $ids);
+    $ids = array_merge($free->posts , $ids);
+    $ids = array_merge($badges->posts , $ids);
+
+    $posts = new WP_Query(array('post__in' => $ids , 's' => $_GET['s'], 'orderby' => 'post__in' , 'posts_per_page' => -1));
 
 }
 
@@ -76,6 +197,8 @@ if(isset($_GET['filter'])){
             </div>
 
         </div>
+
+        <br clear="all">
         <br clear="all">
         <br clear="all">
 
@@ -84,25 +207,87 @@ if(isset($_GET['filter'])){
 
             <?php global $wp; ?>
 
-            <label for="">
-                <a href="<?=(isset($_GET['filter'])) ? add_query_arg( array('s' => $_GET['s'] , 'filter' => 'badges')) : add_query_arg( array('s' => $_GET['s'] , 'filter' => 'badges'), home_url( $wp->request ) ) ?>" class="<?=(isset($_GET['filter']) && $_GET['filter'] == "badges") ? 'is-active' : ''?>">
-                    <span><img src="<?=(isset($_GET['filter']) && $_GET['filter'] == "badges") ? get_site_url().'/wp-content/uploads/2020/03/collection-search-badges.png' : get_site_url().'/wp-content/uploads/2020/03/collection-search-badges.png'?>" alt=""></span>
-                    <p>Badges</p>
-                </a>
-            </label>
+            <?php if(isset($_GET['filter'])){ ?>
 
-            <label for="">
-                <a href="<?=(isset($_GET['filter'])) ? add_query_arg( array('s' => $_GET['s'] , 'filter' => 'free')) : add_query_arg( array('s' => $_GET['s'] , 'filter' => 'free'), home_url( $wp->request ) ) ?>" class="<?=(isset($_GET['filter']) && $_GET['filter'] == "free") ? 'is-active' : ''?>">
-                    <span><img src="<?=(isset($_GET['filter']) && $_GET['filter'] == "free") ? get_site_url().'/wp-content/uploads/2020/03/collection-activity-resources-1.png' : get_site_url().'/wp-content/uploads/2020/03/collection-activity-resources.png'?>" alt=""></span>
-                    <p>Free Resources</p>
-                </a>
-            </label>
-            <label for="">
-                <a href="<?=(isset($_GET['filter'])) ? add_query_arg( array('s' => $_GET['s'] , 'filter' => 'activities')) : add_query_arg( array('s' => $_GET['s'] , 'filter' => 'activities'), home_url( $wp->request ) ) ?>" class="<?=(isset($_GET['filter']) && $_GET['filter'] == "activities") ? 'is-active' : ''?>">
-                    <span><img src="<?=(isset($_GET['filter']) && $_GET['filter'] == "activities") ? get_site_url().'/wp-content/uploads/2020/03/collection-search-activities.png' : get_site_url().'/wp-content/uploads/2020/03/collection-search-activities.png'?>" alt=""></span>
-                    <p>Activities</p>
-                </a>
-            </label>
+                <label for="">
+                    <a href="<?=(isset($_GET['filter']) && $_GET['filter'] == 'badges') ? add_query_arg( array('s' => $_GET['s']), home_url( $wp->request ).'/') : add_query_arg( array('s' => $_GET['s'] , 'filter' => 'badges'), home_url( $wp->request ).'/' ) ?>" class="<?=(isset($_GET['filter']) && $_GET['filter'] == "badges") ? 'is-active' : ''?>">
+                        <span><img src="<?=(isset($_GET['filter']) && $_GET['filter'] == "badges") ? get_site_url().'/wp-content/uploads/2020/03/collection-search-badges.png' : get_site_url().'/wp-content/uploads/2020/03/collection-search-badges.png'?>" alt=""></span>
+                        <p>Badges</p>
+                    </a>
+                </label>
+
+                <label for="">
+                    <a href="<?=(isset($_GET['filter']) && $_GET['filter'] == 'free') ? add_query_arg( array('s' => $_GET['s']), home_url( $wp->request ).'/') : add_query_arg( array('s' => $_GET['s'] , 'filter' => 'free'), home_url( $wp->request ).'/' ) ?>" class="<?=(isset($_GET['filter']) && $_GET['filter'] == "free") ? 'is-active' : ''?>">
+                        <span><img src="<?=(isset($_GET['filter']) && $_GET['filter'] == "free") ? get_site_url().'/wp-content/uploads/2020/03/collection-activity-resources-1.png' : get_site_url().'/wp-content/uploads/2020/03/collection-activity-resources.png'?>" alt=""></span>
+                        <p>Free Resources</p>
+                    </a>
+                </label>
+
+                <label for="">
+                    <a href="<?=(isset($_GET['filter']) && $_GET['filter'] == 'activities') ? add_query_arg( array('s' => $_GET['s'], home_url( $wp->request ).'/'), home_url( $wp->request ).'/') : add_query_arg( array('s' => $_GET['s'] , 'filter' => 'activities'), home_url( $wp->request ).'/' ) ?>" class="<?=(isset($_GET['filter']) && $_GET['filter'] == "activities") ? 'is-active' : ''?>">
+                        <span><img src="<?=(isset($_GET['filter']) && $_GET['filter'] == "activities") ? get_site_url().'/wp-content/uploads/2020/03/collection-search-activities.png' : get_site_url().'/wp-content/uploads/2020/03/collection-search-activities.png'?>" alt=""></span>
+                        <p>Activities</p>
+                    </a>
+                </label>
+
+            <?php }else{ ?>
+
+                <?php if(!empty($badges->posts)){ ?>
+
+                    <label for="">
+                        <a href="<?=(isset($_GET['filter']) && $_GET['filter'] == 'badges') ? add_query_arg( array('s' => $_GET['s']), home_url( $wp->request ).'/') : add_query_arg( array('s' => $_GET['s'] , 'filter' => 'badges'), home_url( $wp->request ).'/' ) ?>" class="<?=(isset($_GET['filter']) && $_GET['filter'] == "badges") ? 'is-active' : ''?>">
+                            <span><img src="<?=(isset($_GET['filter']) && $_GET['filter'] == "badges") ? get_site_url().'/wp-content/uploads/2020/03/collection-search-badges.png' : get_site_url().'/wp-content/uploads/2020/03/collection-search-badges.png'?>" alt=""></span>
+                            <p>Badges</p>
+                        </a>
+                    </label>
+
+                <?php } ?>
+
+                <?php if(!empty($free->posts)){ ?>
+
+                    <label for="">
+                        <a href="<?=(isset($_GET['filter']) && $_GET['filter'] == 'free') ? add_query_arg( array('s' => $_GET['s']), home_url( $wp->request ).'/') : add_query_arg( array('s' => $_GET['s'] , 'filter' => 'free'), home_url( $wp->request ).'/' ) ?>" class="<?=(isset($_GET['filter']) && $_GET['filter'] == "free") ? 'is-active' : ''?>">
+                            <span><img src="<?=(isset($_GET['filter']) && $_GET['filter'] == "free") ? get_site_url().'/wp-content/uploads/2020/03/collection-activity-resources-1.png' : get_site_url().'/wp-content/uploads/2020/03/collection-activity-resources.png'?>" alt=""></span>
+                            <p>Free Resources</p>
+                        </a>
+                    </label>
+
+                <?php } ?>
+
+                <?php if(!empty($activities->posts)){ ?>
+
+                    <label for="">
+                        <a href="<?=(isset($_GET['filter']) && $_GET['filter'] == 'activities') ? add_query_arg( array('s' => $_GET['s'], home_url( $wp->request ).'/'), home_url( $wp->request ).'/') : add_query_arg( array('s' => $_GET['s'] , 'filter' => 'activities'), home_url( $wp->request ).'/' ) ?>" class="<?=(isset($_GET['filter']) && $_GET['filter'] == "activities") ? 'is-active' : ''?>">
+                            <span><img src="<?=(isset($_GET['filter']) && $_GET['filter'] == "activities") ? get_site_url().'/wp-content/uploads/2020/03/collection-search-activities.png' : get_site_url().'/wp-content/uploads/2020/03/collection-search-activities.png'?>" alt=""></span>
+                            <p>Activities</p>
+                        </a>
+                    </label>
+
+                <?php } ?>
+
+                <?php if(!empty($trails->posts)){ ?>
+
+                    <label for="">
+                        <a href="<?=(isset($_GET['filter']) && $_GET['filter'] == 'trails') ? add_query_arg( array('s' => $_GET['s']), home_url( $wp->request ).'/') : add_query_arg( array('s' => $_GET['s'] , 'filter' => 'trails'), home_url( $wp->request ).'/' ) ?>" class="<?=(isset($_GET['filter']) && $_GET['filter'] == "trails") ? 'is-active' : ''?>">
+                            <span><img src="<?=(isset($_GET['filter']) && $_GET['filter'] == "trails") ? get_site_url().'/wp-content/uploads/2020/03/collection-search-activities.png' : get_site_url().'/wp-content/uploads/2020/03/collection-search-activities.png'?>" alt=""></span>
+                            <p>Trails</p>
+                        </a>
+                    </label>
+
+                <?php } ?>
+
+                <?php if(!empty($tales->posts)){ ?>
+
+                    <label for="">
+                        <a href="<?=(isset($_GET['filter']) && $_GET['filter'] == 'tales') ? add_query_arg( array('s' => $_GET['s']), home_url( $wp->request ).'/') : add_query_arg( array('s' => $_GET['s'] , 'filter' => 'tales'), home_url( $wp->request ).'/' ) ?>" class="<?=(isset($_GET['filter']) && $_GET['filter'] == "tales") ? 'is-active' : ''?>">
+                            <span><img src="<?=(isset($_GET['filter']) && $_GET['filter'] == "tales") ? get_site_url().'/wp-content/uploads/2020/03/collection-search-activities.png' : get_site_url().'/wp-content/uploads/2020/03/collection-search-activities.png'?>" alt=""></span>
+                            <p>Tales</p>
+                        </a>
+                    </label>
+
+                <?php } ?>
+
+            <?php } ?>
 
         </div>
 

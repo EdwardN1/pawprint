@@ -32,10 +32,11 @@
 
     $('body').on('click' , '.faq-accordian .question' , function () {
 
-        $(this).parent().find('.answer').slideUp();
-        $(this).parent().find('.question').removeClass('open');
-        $(this).find('.answer').slideDown();
-        $(this).addClass('open');
+        $(this).siblings().find('.answer').slideUp();
+        $(this).siblings().removeClass('open');
+
+        $(this).find('.answer').slideToggle();
+        $(this).toggleClass('open');
 
     });
 
@@ -115,7 +116,6 @@
         $.post(wc_add_to_cart_params.ajax_url , data , function (res) {
             var json = JSON.parse(res);
             console.log(json);
-            $('.extend-adventure').show();
             $('body .extend-activities ul').html(json.activities);
             $('body .extend-products ul').html(json.products);
         });
@@ -124,6 +124,9 @@
     });
 
     $('body').on('submit' , '#trails-search-form' , function () {
+
+
+        $('.extend-adventure').show();
 
         if($('body #trails-search-form select[name="_trail"]').val() == null){
 
@@ -289,11 +292,12 @@
 
             e.preventDefault();
             e.stopImmediatePropagation();
+            $(this).parent().siblings().find('.menu-dropdown').slideUp();
             $(this).parent().find('.menu-dropdown').slideToggle();
 
         });
 
-        $('.badge-actions').insertAfter('.description + p');
+        $('.badge-actions').insertAfter('.woocommerce div.product form.cart');
 
     }
 
@@ -365,27 +369,71 @@
 
         if(ele.hasClass('woocommerce-MyAccount-navigation-link--edit-account')){
 
-            ele.find('a').append('<small>Change your account details</small>');
-            var ahtml = ele.find('a').html();
-            ele.find('a').html('<img src="https://pawprintfamily.com/wp-content/uploads/2020/03/account-icons-account.png">'+ahtml);
+            if(!ele.hasClass('is-active')){
+
+                ele.find('a').append('<small>Change your account details</small>');
+                var ahtml = ele.find('a').html();
+                ele.find('a').html('<img src="https://pawprintfamily.com/wp-content/uploads/2020/04/account-icons-account-blue.png">'+ahtml);
+
+            }else{
+
+                ele.find('a').append('<small>Change your account details</small>');
+                var ahtml = ele.find('a').html();
+                ele.find('a').html('<img src="https://pawprintfamily.com/wp-content/uploads/2020/03/account-icons-account.png">'+ahtml);
+
+
+            }
 
         }else if(ele.hasClass('woocommerce-MyAccount-navigation-link--orders')){
 
-            ele.find('a').append('<small>Track your recent orders</small>');
-            var ahtml = ele.find('a').html();
-            ele.find('a').html('<img src="https://pawprintfamily.com/wp-content/uploads/2020/03/account-icons-orders.png">'+ahtml);
+            if(!ele.hasClass('is-active')){
+
+                ele.find('a').append('<small>Track your recent orders</small>');
+                var ahtml = ele.find('a').html();
+                ele.find('a').html('<img src="https://pawprintfamily.com/wp-content/uploads/2020/04/account-icons-orders-blue.png">'+ahtml);
+
+            }else{
+
+                ele.find('a').append('<small>Track your recent orders</small>');
+                var ahtml = ele.find('a').html();
+                ele.find('a').html('<img src="https://pawprintfamily.com/wp-content/uploads/2020/03/account-icons-orders.png">'+ahtml);
+
+            }
+
 
         }else if(ele.hasClass('woocommerce-MyAccount-navigation-link--packs')){
 
-            ele.find('a').append('<small>Add new or edit existing custom challenge packs</small>');
-            var ahtml = ele.find('a').html();
-            ele.find('a').html('<img src="https://pawprintfamily.com/wp-content/uploads/2020/03/account-icons-packs.png">'+ahtml);
+            if(!ele.hasClass('is-active')){
+
+                ele.find('a').append('<small>Add new or edit existing custom challenge packs</small>');
+                var ahtml = ele.find('a').html();
+                ele.find('a').html('<img src="https://pawprintfamily.com/wp-content/uploads/2020/04/account-icons-packs-blue.png">'+ahtml);
+
+            }else{
+
+                ele.find('a').append('<small>Add new or edit existing custom challenge packs</small>');
+                var ahtml = ele.find('a').html();
+                ele.find('a').html('<img src="https://pawprintfamily.com/wp-content/uploads/2020/03/account-icons-packs.png">'+ahtml);
+
+            }
+
 
         }else if(ele.hasClass('woocommerce-MyAccount-navigation-link--edit-address')){
 
-            ele.find('a').append('<small>Edit your saved accounts</small>');
-            var ahtml = ele.find('a').html();
-            ele.find('a').html('<img src="https://pawprintfamily.com/wp-content/uploads/2020/03/account-icons-profile.png">'+ahtml);
+            if(!ele.hasClass('is-active')){
+
+                ele.find('a').append('<small>Edit your saved accounts</small>');
+                var ahtml = ele.find('a').html();
+                ele.find('a').html('<img src="https://pawprintfamily.com/wp-content/uploads/2020/04/account-icons-profile-blue.png">'+ahtml);
+
+
+            }else{
+
+                ele.find('a').append('<small>Edit your saved accounts</small>');
+                var ahtml = ele.find('a').html();
+                ele.find('a').html('<img src="https://pawprintfamily.com/wp-content/uploads/2020/03/account-icons-profile.png">'+ahtml);
+
+            }
 
         }
 
@@ -448,5 +496,36 @@
         }
 
     });
+
+    $('.add_to_cart_button').click(function () {
+        $('body .woofc-action-left a').html('Continue Shopping').attr('href' , '').addClass('woofc-continue-url');
+    });
+
+    console.log($('header#masthead').outerHeight());
+
+    $('.menu-black-block').height($('body').height() - $('header#masthead').outerHeight() - 32);
+    $('.menu-black-block').css('top' , $('header#masthead').outerHeight()+32);
+
+    $('.has-dropdown').hover(function () {
+
+        $('.menu-black-block').show();
+
+    }, function () {
+
+        $('.menu-black-block').hide();
+
+    });
+
+    $('.product-name div').each(function (index , element) {
+
+        var ele = $(element);
+        var html = ele.html();
+        $('<br/>').insertAfter(ele);
+
+        if(html == 'Pre-Order product'){
+            ele.remove();
+        }
+
+    })
 
 } )( jQuery );

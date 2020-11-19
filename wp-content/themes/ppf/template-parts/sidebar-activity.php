@@ -30,7 +30,7 @@ asort($price);
 
 <h2 class="main_header">Activity details</h2>
 <div class="activity-details">
-    <div>
+    <div class="badges-block">
         <h2>This activity counts towards...</h2>
         <div class="badges">
             <?php
@@ -45,183 +45,8 @@ asort($price);
             ?>
         </div>
     </div>
-    <input type="hidden" name="image_1_for_pdf">
-    <input type="hidden" name="image_2_for_pdf">
-    <input type="hidden" name="image_3_for_pdf">
-    <div id="pdf-image-1">
-        <section>
-            <span><img src="<?=get_site_url().'/wp-content/themes/rareearth/library/images/icons/price.png'?>" alt=""></span>
-            <p>
-                <?php
-                    $i = 0;
-                    foreach ($price as $item){
-                        $i++;
-                        echo $item->name;
-                        if($i != count($price)){
-                            echo ',';
-                        }
-                    }
-                ?>
-            </p>
-        </section>
-        <section>
-            <span>
-                <?php
-                    $environments = array();
-                    foreach ($environment as $item){
-                        $environments[] = $item->name;
-                    }
 
-                    if(count($environments) == 1 && in_array('Indoors' , $environments)){
-                        ?>
-                            <img src="<?=get_site_url().'/wp-content/themes/rareearth/library/images/icons/indoors.png'?>" alt="">
-                        <?php
-                    }elseif(count($environments) == 1 && in_array('Outdoors' , $environments)){
-                        ?>
-                             <img src="<?=get_site_url().'/wp-content/themes/rareearth/library/images/icons/outdoors.png'?>" alt="">
-                        <?php
-                    }else{
-                        ?>
-                            <img src="<?=get_site_url().'/wp-content/themes/rareearth/library/images/icons/indoors-outdoors.png'?>" alt="">
-                        <?php
-                    }
-
-                ?>
-            </span>
-            <p>
-                <?php
-                    $i = 0;
-                    foreach ($environment as $item){
-                        $i++;
-                        echo $item->name;
-                        if($i != count($environment)){
-                            echo '/';
-                        }
-                    }
-                ?>
-            </p>
-        </section>
-        <section>
-            <span>
-
-                <?php
-                    $times = array();
-                    foreach ($time as $item){
-                        $times[] = $item->name;
-                    }
-
-                    if(count($times) == 1 && in_array('Day' , $times)){
-                        ?>
-                        <img src="<?=get_site_url().'/wp-content/themes/rareearth/library/images/icons/day.png'?>" alt="">
-                        <?php
-                    }elseif(count($times) == 1 && in_array('Night' , $times)){
-                        ?>
-                        <img src="<?=get_site_url().'/wp-content/themes/rareearth/library/images/icons/night.png'?>" alt="">
-                        <?php
-                    }else{
-                        ?>
-                        <img src="<?=get_site_url().'/wp-content/themes/rareearth/library/images/icons/day-night.png'?>" alt="">
-                        <?php
-                    }
-
-                ?>
-
-            </span>
-            <p>
-                <?php
-                    $i = 0;
-                    foreach ($time as $item){
-                        $i++;
-                        echo $item->name;
-                        if($i != count($time)){
-                            echo '/';
-                        }
-                    }
-                ?>
-            </p>
-        </section>
-    </div>
-    <div id="pdf-image-2">
-        <?php
-            foreach($all_ages as $age){
-
-                ?>
-
-                    <section>
-                        <span <?=(in_array($age , $ages)) ? 'class="checked"' : ''?>></span>
-                        <p><?=$age->name?></p>
-                    </section>
-
-                <?php
-
-            }
-        ?>
-    </div>
-    <div id="pdf-image-3">
-        <?php
-        foreach($all_seasons as $season){
-
-            ?>
-
-            <section class="square">
-                <span <?=(in_array($season , $seasons)) ? 'class="checked"' : ''?>></span>
-                <p><?=$season->name?></p>
-            </section>
-
-            <?php
-
-        }
-        ?>
-    </div>
-    <div>
-
-        <div class="activity-sidebar-tabs">
-            <div class="tabs">
-                <a href="" data-toggle="equipment">Equipment</a>
-                <a href="" data-toggle="skills">Skills</a>
-            </div>
-            <div class="content">
-                <div class="tab-content" data-tab="equipment">
-                    <ul>
-                        <?php foreach($equipment as $item){ ?>
-                            <li><?php echo $item->name ?></li>
-                        <?php } ?>
-                    </ul>
-                </div>
-                <div class="tab-content" data-tab="skills">
-                    <ul>
-                        <?php foreach($skills as $item){ ?>
-                            <li><?php echo $item->name ?></li>
-                        <?php } ?>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <script>
-
-            $ = jQuery;
-
-            $('.activity-sidebar-tabs .tabs a').click(function (e) {
-
-                e.preventDefault();
-
-                $('.activity-sidebar-tabs .tabs a').removeClass('active');
-                $(this).addClass('active');
-
-                var tab = $(this).data('toggle');
-
-                $('.tab-content').hide();
-                $('.tab-content[data-tab="'+tab+'"]').show();
-
-            });
-
-            $('.activity-sidebar-tabs .tabs a').first().click();
-
-        </script>
-
-    </div>
-    <div>
+    <div class="subjects-block">
         <h2>Related Subjects...</h2>
         <ul class="subjects">
             <?php foreach ($subject as $item){ ?>
@@ -234,5 +59,76 @@ asort($price);
             <?php } ?>
         </ul>
     </div>
+
+    <br clear="all">
+
+    <div class="second-row">
+
+        <div class="cost-block">
+            <h2>Cost</h2>
+            <ul>
+                <li <?=(array_search('FREE', array_column($price, 'name')) !== false) ? 'class="active"' : ''?>>FREE</li>
+                <li <?=(array_search('£', array_column($price, 'name')) !== false) ? 'class="active"' : ''?>>£</li>
+                <li <?=(array_search('££', array_column($price, 'name')) !== false) ? 'class="active"' : ''?>>££</li>
+                <li <?=(array_search('£££', array_column($price, 'name')) !== false) ? 'class="active"' : ''?>>£££</li>
+            </ul>
+        </div>
+        <div class="indoors-block">
+            <h2>Indoors/Outdoors</h2>
+            <ul>
+                <li <?=(array_search('Indoors', array_column($environment, 'name')) !== false) ? 'class="active"' : ''?>>Indoors</li>
+                <li <?=(array_search('Outdoors', array_column($environment, 'name')) !== false) ? 'class="active"' : ''?>>Outdoors</li>
+            </ul>
+        </div>
+        <div class="time-block">
+            <h2>Day/Night</h2>
+            <ul>
+                <li <?=(array_search('Day', array_column($time, 'name')) !== false) ? 'class="active"' : ''?>>Day</li>
+                <li <?=(array_search('Night', array_column($time, 'name')) !== false) ? 'class="active"' : ''?>>Night</li>
+            </ul>
+        </div>
+        <div class="ages-block">
+            <h2>Ages</h2>
+            <ul>
+                <li <?=(array_search('3 - 5', array_column($ages, 'name')) !== false) ? 'class="active"' : ''?>>3-5</li>
+                <li <?=(array_search('5 - 7', array_column($ages, 'name')) !== false) ? 'class="active"' : ''?>>5-7</li>
+                <li <?=(array_search('7 - 11', array_column($ages, 'name')) !== false) ? 'class="active"' : ''?>>7-11</li>
+                <li <?=(array_search('11 - 14', array_column($ages, 'name')) !== false) ? 'class="active"' : ''?>>11-14</li>
+                <li <?=(array_search('14 - 18', array_column($ages, 'name')) !== false) ? 'class="active"' : ''?>>14-18</li>
+            </ul>
+        </div>
+        <div class="season-block">
+            <h2>Seasons</h2>
+            <ul>
+                <li <?=(array_search('Spring', array_column($seasons, 'name')) !== false) ? 'class="active"' : ''?>>Spring</li>
+                <li <?=(array_search('Summer', array_column($seasons, 'name')) !== false) ? 'class="active"' : ''?>>Summer</li>
+                <li <?=(array_search('Autumn', array_column($seasons, 'name')) !== false) ? 'class="active"' : ''?>>Autumn</li>
+                <li <?=(array_search('Winter', array_column($seasons, 'name')) !== false) ? 'class="active"' : ''?>>Winter</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="third-row">
+
+        <div class="equipment-block">
+            <h2>Equipment</h2>
+            <ul>
+                <?php foreach($equipment as $item){ ?>
+                    <li><?php echo $item->name ?></li>
+                <?php } ?>
+            </ul>
+        </div>
+        <div class="skills-block">
+            <h2>Skills</h2>
+            <ul>
+                <?php foreach($skills as $item){ ?>
+                    <li><?php echo $item->name ?></li>
+                <?php } ?>
+            </ul>
+        </div>
+
+    </div>
+
 </div>
 

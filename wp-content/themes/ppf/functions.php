@@ -362,10 +362,37 @@ function activity_filter_query_per_page( $query ) {
 
             $query->set('tax_query' , $tax_query);
             $query->set('meta_query' , $meta_query);
+            $query->set('orderby' , 'rand');
 
         }
 
     }
+
+
+}
+
+add_filter( 'woocommerce_shortcode_products_query', 'badge_id_pre_posts', 50, 3 );
+
+function badge_id_pre_posts($query_args, $atts, $loop_name){
+
+    global $wp;
+    $current_url = home_url( add_query_arg( array(), $wp->request ) );
+
+    if(strpos($current_url , 'free-resources') && isset($_GET['badge_id'])){
+
+        $badge = $_GET['badge_id'];
+        $challengePack = get_field('challenge_pack_pdf' , $badge);
+        $attachment = $challengePack['filename'];
+
+        $query_args['meta_query'][] = array(
+            'key' => '_downloadable_files',
+            'value' => $attachment,
+            'compare' => 'LIKE'
+        );
+
+    }
+
+    return $query_args;
 
 }
 
@@ -417,14 +444,31 @@ function badges_actions(){
         ?>
 
             <div class="badge-actions">
-                <a href="<?=$pdfId['url']?>" class="pink">Download challenge pack</a>
+                <?php if($pdfId){ ?><a href="<?=$pdfId['url']?>" class="pink">Download challenge pack</a><?php } ?>
                 <a target="_self" href="<?=get_site_url()?>/activities/?activity-filter=on&_badge=<?=get_queried_object_id()?>&more_filters=show" class="blue">Find related activities</a>
-                <a target="_self" href="<?=get_site_url()?>/product-category/free-resources/?badge_id=<?=get_queried_object_id()?>" class="yellow">Show related resources</a>
+                <a target="_self" href="<?=get_site_url()?>/product-category/free-resources/?orderby=date&badge_id=<?=get_queried_object_id()?>" class="yellow">Show related resources</a>
             </div>
 
         <?php
 
     }
+
+    if(has_term('free-resources' , 'product_cat' , get_queried_object_id())){
+
+        $badge = get_field('badge' , get_queried_object_id());
+
+        ?>
+
+        <div class="badge-actions">
+            <a href="<?=get_permalink($badge->ID)?>" class="pink">Purchase the badge</a>
+            <a target="_self" href="<?=get_site_url()?>/activities/?activity-filter=on&_badge=<?=$badge->ID?>&more_filters=show" class="blue">Find related activities</a>
+            <a target="_self" href="<?=get_site_url()?>/product-category/free-resources/?orderby=date&badge_id=<?=$badge->ID?>" class="yellow">Show related resources</a>
+        </div>
+
+        <?php
+
+    }
+
 }
 
 add_action( 'wp_enqueue_scripts', 'add_theme_stylesheet' );
@@ -471,11 +515,14 @@ function pawprint_category_content(){
 
 }
 
-add_filter( 'woocommerce_order_number', 'change_woocommerce_order_number_ppf' );
+//add_filter( 'woocommerce_order_number', 'change_woocommerce_order_number_ppf' );
 
 function change_woocommerce_order_number_ppf( $order_id ) {
-    $new_order_id = $order_id.'/'.date('dmy');
-    return $new_order_id;
+    if(get_post_meta($order_id , '_ekm_order_number' , true) != ''){
+        return str_replace('-' , '/' , get_post_meta($order_id , '_ekm_order_number' , true));
+    }else{
+        return $order_id;
+    }
 }
 
 add_action('woocommerce_after_cart' , 'ppf_delivery_date');
@@ -498,7 +545,7 @@ function ppf_delivery_date(){
     }
 
     $date = max($dates);
-    $dateFormat = date('F d, Y' , $date);
+    $dateFormat = date('dS F Y' , $date);
 
     if(!empty($dates)){
         echo '<p class="cart-delivery-date">Based on the products that are in your basket, the estimated dispatch date for your order is:<br/>'.$dateFormat.'</p>';
@@ -531,26 +578,39 @@ function ppf_order_summary(){
 
 add_filter( 'woocommerce_product_single_add_to_cart_text', 'woocommerce_custom_single_add_to_cart_text' );
 function woocommerce_custom_single_add_to_cart_text() {
+
+    global $product;
+
     if(is_product_category('free-resources')){
-        return __('Download' , 'woocommerce');
+        return __('Get Resource' , 'woocommerce');
     }else{
-        return __( 'Add To Basket', 'woocommerce' );
+
+        if(get_post_meta($product->get_id() , '_ywpo_preorder' , true) == 'yes') {
+            return __( 'Pre Order Now', 'woocommerce' );
+        }else {
+            return __('Add To Basket', 'woocommerce');
+        }
+
     }
 }
 
 add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );
 function woocommerce_custom_product_add_to_cart_text() {
+
+    global $product;
+
     if(is_product_category('free-resources')){
-        return __('Download' , 'woocommerce');
+        return __('Get Resource' , 'woocommerce');
     }else{
-        return __( 'Add To Basket', 'woocommerce' );
+
+        if(get_post_meta($product->get_id() , '_ywpo_preorder' , true) == 'yes') {
+            return __( 'Pre Order Now', 'woocommerce' );
+        }else {
+            return __('Add To Basket', 'woocommerce');
+        }
+
     }
 }
-
-function remove_image_zoom_support() {
-    remove_theme_support( 'wc-product-gallery-zoom' );
-}
-add_action( 'after_setup_theme', 'remove_image_zoom_support', 100 );
 
 add_action('wp_footer' , 'ppf_breadcrumbs_product_categories');
 
@@ -576,9 +636,34 @@ function ppf_breadcrumbs_product_categories(){
 
             });
 
+            $('.single_add_to_cart_button').each(function (index,element) {
+                var ele = $(element);
+                if(ele.html() == 'Pre-Order Now'){
+                    ele.html('Pre Order Now');
+                }
+            });
+
         </script>
 
         <?php
+    }else{
+
+        ?>
+
+        <script>
+
+            jQuery('body .woofc-item').each(function (index , element) {
+                var ele = jQuery(element);
+                ele.height(ele.height());
+            });
+
+            var orderStaus = jQuery('body .woocommerce-orders-table__cell-order-status').html().split('<br>');
+            jQuery('body .woocommerce-orders-table__cell-order-status').html(orderStaus[0]);
+
+        </script>
+
+        <?php
+
     }
 
 }
@@ -704,7 +789,11 @@ function ppf_wc_get_account_orders_columns($columns){
 function add_estimated_date($product_title, $cart_item, $cart_item_key){
 
     if(get_field('estimated_delivery_date' , $cart_item['product_id']) != ''){
-        return $product_title.'<br/><span style="color: red;">Estimated Dispatch Date: '.get_field('estimated_delivery_date' , $cart_item['product_id']).'</span>';
+        if(get_post_meta($cart_item['product_id'] , '_ywpo_preorder' , true) == 'yes') {
+            return $product_title.'<span style="color: red;">Estimated Dispatch Date: '.get_field('estimated_delivery_date' , $cart_item['product_id']).' (Pre-order)</span>';
+        }else{
+            return $product_title.'<span style="color: red;">Estimated Dispatch Date: '.get_field('estimated_delivery_date' , $cart_item['product_id']).'</span>';
+        }
     }else{
         return $product_title;
     }
@@ -733,23 +822,6 @@ function add_date_ordering_to_categories(){
         ob_start();
         wp_redirect('?orderby=date');
         exit();
-    }
-
-}
-
-add_filter( 'woocommerce_loop_add_to_cart_link', 'replacing_add_to_cart_button', 10, 2 );
-function replacing_add_to_cart_button( $button, $product  ) {
-
-    if($product->is_downloadable('yes') && $product->get_regular_price() == ''){
-
-        $downloads = $product->get_files();
-
-        foreach( $downloads as $key => $each_download ) {
-           return '<a class="button" href="'.$each_download["file"].'">Download</a>';
-        }
-
-    }else{
-        return $button;
     }
 
 }
@@ -803,7 +875,7 @@ function custom_wc_add_fee() {
     }
 
 }
-add_action( 'woocommerce_cart_calculate_fees','custom_wc_add_fee' );
+//add_action( 'woocommerce_cart_calculate_fees','custom_wc_add_fee' );
 
 add_filter ('woocommerce_email_order_items_args', 'send_purchase_note_to_everyone');
 
@@ -818,4 +890,172 @@ if ( ! function_exists( 'wp_password_change_notification' ) ) {
     function wp_password_change_notification( $user ) {
         return;
     }
+}
+
+add_filter( 'woocommerce_cart_shipping_method_full_label', 'bbloomer_add_0_to_shipping_label', 10, 2 );
+
+function bbloomer_add_0_to_shipping_label( $label, $method ) {
+
+// if shipping rate is 0, concatenate ": $0.00" to the label
+    if ( ! ( $method->cost > 0 ) ) {
+        $label .= ': ' . wc_price(0);
+    }
+
+// return original or edited shipping label
+    return $label;
+
+}
+
+add_action( 'wp', 'remove_image_zoom_support', 100 );
+
+function remove_image_zoom_support() {
+    remove_theme_support( 'wc-product-gallery-zoom' );
+}
+
+function my_save_account_details_redirect($user_id){
+    wp_safe_redirect( wc_get_endpoint_url( 'edit-account') );
+    exit;
+}
+add_action( 'woocommerce_save_account_details', 'my_save_account_details_redirect', 10, 1 );
+
+add_filter( 'loop_shop_per_page', 'bbloomer_redefine_products_per_page', 9999 );
+
+function bbloomer_redefine_products_per_page( $per_page ) {
+    $per_page = 30;
+    return $per_page;
+}
+
+add_action('custom_woocommerce_single_product_summary' , 'custom_woocommerce_single_product_summary');
+add_action('custom_woocommerce_single_product_summary' , 'woocommerce_template_single_title' , 10);
+add_action('custom_woocommerce_single_product_summary' , 'custom_woocommerce_single_product_summary_free' , 20);
+add_action('custom_woocommerce_single_product_summary' , 'custom_woocommerce_single_product_summary_purchase' , 30);
+add_action('custom_woocommerce_single_product_summary' , 'woocommerce_template_single_add_to_cart' , 40);
+add_action('custom_woocommerce_single_product_summary' , 'woocommerce_template_single_excerpt' , 50);
+
+function custom_woocommerce_single_product_summary(){
+}
+
+function custom_woocommerce_single_product_summary_free(){
+    global $product;
+    $downloads = $product->get_files();
+    $files = array();
+
+    foreach ($downloads as $download){
+        $files[] = $download["file"];
+    }
+
+    echo '<p><strong>Download a free copy of this resource</strong></p>';
+
+    echo '<div class="challenge_pack_download_actions">';
+
+    if(count($files) == 2){
+
+        if(has_term( array('challenge-packs'), 'product_cat', $product->get_id() )){
+
+            echo '<a href="'.$files[0].'">Download Challenge Pack</a>';
+            echo '<a href="'.$files[1].'">Printer Friendly Version</a>';
+
+        }else{
+
+            echo '<a href="'.$files[0].'">Download Free Resource</a>';
+            echo '<a href="'.$files[1].'">Printer Friendly Version</a>';
+
+        }
+
+
+    }else{
+
+        if(has_term( array('challenge-packs'), 'product_cat', $product->get_id() )){
+
+            echo '<a href="'.$files[0].'">Download Challenge Pack</a>';
+
+        }else{
+
+            echo '<a href="'.$files[0].'">Download Free Resource</a>';
+
+        }
+
+    }
+
+    echo '</div>';
+
+}
+
+function custom_woocommerce_single_product_summary_purchase(){
+    global $product;
+    if(has_term( array('challenge-packs'), 'product_cat', $product->get_id() ) && $product->get_regular_price() != '') {
+        echo '<div class="or_line"><p>or</p></div>';
+        echo '<p><strong>Purchase an A4 printed copy of this Challenge Pack for £' . $product->get_regular_price() . '</strong></p>';
+    }
+
+}
+
+function cw_change_product_html( $price_html, $product ) {
+
+    global $wp;
+    $current_url = home_url( add_query_arg( array(), $wp->request ) );
+
+    if(strpos($current_url , 'free-resources') && !is_singular()){
+        $price_html = '';
+    }
+
+    return $price_html;
+}
+
+add_filter( 'woocommerce_get_price_html', 'cw_change_product_html', 10, 2 );
+
+
+function wc_cart_totals_shipping_method_label_custom( $method ) {
+    $label = '';
+    $has_cost  = 0 < $method->cost;
+    $hide_cost = ! $has_cost && in_array( $method->get_method_id(), array( 'free_shipping', 'local_pickup' ), true );
+
+    if ( $has_cost && ! $hide_cost ) {
+        if ( WC()->cart->display_prices_including_tax() ) {
+            $label .= wc_price( $method->cost + $method->get_shipping_tax() ) . ' ';
+            if ( $method->get_shipping_tax() > 0 && ! wc_prices_include_tax() ) {
+                $label .= ' <small class="tax_label">' . WC()->countries->inc_tax_or_vat() . '</small>';
+            }
+        } else {
+            $label .= wc_price( $method->cost ). ' ';
+            if ( $method->get_shipping_tax() > 0 && wc_prices_include_tax() ) {
+                $label .= ' <small class="tax_label">' . WC()->countries->ex_tax_or_vat() . '</small>';
+            }
+        }
+    }
+
+    $label .= $method->get_label();
+
+    return apply_filters( 'woocommerce_cart_shipping_method_full_label', $label, $method );
+}
+
+add_action( 'init', 'update_extra_profile_fields');
+
+function update_extra_profile_fields() {
+
+    $user_id = get_current_user_id();
+
+    if(isset($_POST['hear'])){
+        update_user_meta($user_id , '_hear' ,  $_POST['hear']);
+    }
+
+    if(isset($_POST['groups'])){
+        update_user_meta($user_id , '_groups' ,  json_encode($_POST['groups']));
+    }
+
+    if(isset($_POST['ages'])) {
+        update_user_meta($user_id, '_ages', json_encode($_POST['ages']));
+    }
+
+}
+
+add_filter( 'woocommerce_loop_add_to_cart_link', 'replacing_add_to_cart_button', 10, 2 );
+function replacing_add_to_cart_button( $button, $product  ) {
+
+    if(is_product_category('free-resources') || has_term( array('free-resources'), 'product_cat', $product->get_id() )){
+        $button = '<a class="button" href="' . $product->get_permalink() . '">Get Resource</a>';
+    }
+
+    return $button;
+
 }

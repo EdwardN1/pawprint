@@ -36,6 +36,21 @@ $related_args = array(
     )
 );
 
+$related_args2 = array(
+    'post_type' => 'product',
+    'posts_per_page' => 3,
+    'post__not_in' => array(get_queried_object_id()),
+    'orderby' => 'rand',
+    'order' => 'ASC',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'product_cat',
+            'field' => 'slug',
+            'terms' => array('badges')
+        )
+    )
+);
+
 $tribe_args = array(
     'post_type' => 'product',
     'posts_per_page' => 1,
@@ -52,6 +67,7 @@ $tribe_args = array(
 );
 
 $related = new WP_Query($related_args);
+$related2 = new WP_Query($related_args2);
 $tribe = new WP_Query($tribe_args);
 
 if ( $related ) : ?>
@@ -70,23 +86,65 @@ if ( $related ) : ?>
 
         <?php
 
-            while ($tribe->have_posts()){ $tribe->the_post();
+            if ( has_term( 'trails', 'product_cat' ) || has_term( 'tales', 'product_cat' ) || has_term( 'trail-badges', 'product_cat' ) ) {
 
-                $post_object = get_post( $tribe->post->ID );
+                $extraProducts = get_field('extra_products' , get_queried_object_id());
+                $eProducts = array();
 
-                setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+                foreach ($extraProducts as $extraProduct){
+                    if($extraProduct['extra_product']->ID !== get_queried_object_id()){
+                        $eProducts[] = $extraProduct['extra_product']->ID;
+                    }
+                }
 
-                wc_get_template_part( 'content', 'product' );
+                $extraProductResults = new WP_Query(
+                    array(
+                        'post_type' => 'product',
+                        'post__in' => $eProducts
+                    )
+                );
 
-            }
+                while ($extraProductResults->have_posts()){ $extraProductResults->the_post();
 
-            while ($related->have_posts()){ $related->the_post();
+                    $post_object = get_post( $extraProductResults->post->ID );
 
-                $post_object = get_post( $related->post->ID );
+                    setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
 
-                setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+                    wc_get_template_part( 'content', 'product' );
 
-                wc_get_template_part( 'content', 'product' );
+                }
+
+                while ($related2->have_posts()){ $related2->the_post();
+
+                    $post_object = get_post( $related2->post->ID );
+
+                    setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+
+                    wc_get_template_part( 'content', 'product' );
+
+                }
+
+            }else{
+
+                while ($tribe->have_posts()){ $tribe->the_post();
+
+                    $post_object = get_post( $tribe->post->ID );
+
+                    setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+
+                    wc_get_template_part( 'content', 'product' );
+
+                }
+
+                while ($related->have_posts()){ $related->the_post();
+
+                    $post_object = get_post( $related->post->ID );
+
+                    setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+
+                    wc_get_template_part( 'content', 'product' );
+
+                }
 
             }
 

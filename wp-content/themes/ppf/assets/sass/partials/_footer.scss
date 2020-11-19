@@ -119,6 +119,7 @@ footer{
           p{
             color: #FFF;
             margin-bottom: 30px;
+            margin-top: 0px !important;
           }
 
           .widget{
@@ -227,6 +228,14 @@ footer{
       background: url('https://pawprintfamily.com/wp-content/uploads/2020/02/too-cool.jpg') 50% 50% no-repeat;
       background-size: cover !important;
 
+      div.wpcf7-validation-errors, div.wpcf7-acceptance-missing{
+        margin-top: -50px;
+        color: yellow;
+        width: 80%;
+        margin-left: 10%;
+        font-size: 12px;
+      }
+
       .subscribe-form{
         padding: 40px 80px;
         margin: 0px;
@@ -250,13 +259,14 @@ footer{
           border: 0px;
           padding: 0 10px;
           font-family: 'Tajawal';
+          height: 42px !important;
         }
 
         input[type="submit"]{
           width: 100%;
           display: block;
           clear: both;
-          padding: 10px;
+          padding: 14px 10px 10px;
           background: $badges !important;
           border-radius: 0px !important;
           font-family: 'billy-regular';
@@ -264,6 +274,12 @@ footer{
           font-size: 1rem !important;
           border: 0px;
           box-sizing: border-box;
+
+          &:hover{
+            text-decoration: underline !important;
+            cursor: pointer !important;
+          }
+
         }
 
       }
@@ -272,4 +288,22 @@ footer{
 
   }
 
+}
+
+span.wpcf7-not-valid-tip{
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  line-height: 1.5em;
+  color: yellow;
+}
+
+.wpcf7-form-control-wrap{
+  display: block;
+  clear: both;
+}
+
+.grecaptcha-badge{
+  display: none !important;
 }

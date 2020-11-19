@@ -28,7 +28,21 @@
   }
 
   .footer-top-part .left .block:last-of-type .left{
+    width: 100%;
     margin-bottom: 20px;
+
+    br{
+      content: ' ';
+      &:after{
+        content: ' ';
+      }
+    }
+
+  }
+
+  .footer-top-part .right .block .subscribe-form input[type="text"],
+  .footer-top-part .right .block .subscribe-form input[type="email"]{
+    line-height: 42px !important;
   }
 
   .footer-top-part .left .block:last-of-type .left img{

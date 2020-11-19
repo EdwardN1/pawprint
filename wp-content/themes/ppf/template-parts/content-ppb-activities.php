@@ -31,7 +31,6 @@
     <?php echo do_shortcode('[vc_pawprint_breadcrumbs_block]'); ?>
 
     <div class="left-section">
-
         <div class="activity_actions">
 
             <?php if(!is_user_logged_in()){ ?>
@@ -42,9 +41,16 @@
 
             <a href="<?=get_site_url().'/print-pack?activity_id='.get_queried_object_id()?>" class="pp-btn teal">Download Activity Card</a>
 
-            <a href="" class="pp-btn yellow">View Activity Resources</a>
+            <a href="https://pawprintfamily.com/product-category/free-resources/?product_category=activity-resources" class="pp-btn yellow">View Activity Resources</a>
 
         </div>
+    </div>
+
+    <div class="sidebar activity-detail">
+        <?php get_template_part('template-parts/sidebar' , 'activity'); ?>
+    </div>
+
+    <div class="left-section">
 
         <?php if(!empty($blocks)){ ?>
 
@@ -125,18 +131,22 @@
 
             <div class="text-center">
 
-                <img style="max-width:400px;" src="<?=get_site_url()?>/wp-content/uploads/2020/03/Rik-Bear-Hard-Hat-01.png" alt="">
+                <div class="activity-information-missing">
 
-                <h2>Additional Information under construction!</h2>
-                <p>We’re working hard in the background to make it even easier to access adventure and will be adding more information to this activity card soon. Please keep checking back as we update the website regularly. Don’t forget you can still save this activity to your own challenge pack or download the activity card using the buttons above.</p>
+                    <img style="max-width:400px;" src="<?=get_site_url()?>/wp-content/uploads/2020/03/Rik-Bear-Hard-Hat-01.png" alt="">
+
+                    <div class="">
+                        <h2>Additional Information under construction!</h2>
+                        <p>We’re working hard in the background to make it even easier to access adventure and will be adding more information to this activity card soon. Please keep checking back as we update the website regularly. Don’t forget you can still save this activity to your own challenge pack or download the activity card using the buttons above.</p>
+
+                    </div>
+
+                </div>
 
             </div>
 
         <?php } ?>
 
-    </div>
-    <div class="sidebar activity-detail">
-        <?php get_template_part('template-parts/sidebar' , 'activity'); ?>
     </div>
 
 </article>

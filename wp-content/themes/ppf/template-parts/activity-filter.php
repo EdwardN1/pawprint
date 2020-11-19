@@ -1,16 +1,20 @@
 <?php
 
-    $types = get_terms(array('taxonomy' => 'ppb-activity-type' , 'hide_empty' => false));
-    $seasons = get_terms(array('taxonomy' => 'ppb-activity-season' , 'hide_empty' => false));
-    $environment = get_terms(array('taxonomy' => 'ppb-activity-environment' , 'hide_empty' => false));
-    $time = get_terms(array('taxonomy' => 'ppb-activity-time' , 'hide_empty' => false));
-    $cost = get_terms(array('taxonomy' => 'ppb-activity-price' , 'hide_empty' => false));
+    ini_set('memory_limit' , -1);
+    ini_set('max_input_time' , 10000000);
+    ini_set('max_execution_time' , 10000000);
+
+    $types = get_terms(array('taxonomy' => 'ppb-activity-type' , 'hide_empty' => false , 'order' => 'ASC' , 'orderBy' => 'slug'));
+    $seasons = get_terms(array('taxonomy' => 'ppb-activity-season' , 'hide_empty' => false , 'order' => 'ASC' , 'orderBy' => 'slug'));
+    $environment = get_terms(array('taxonomy' => 'ppb-activity-environment' , 'hide_empty' => false , 'order' => 'ASC' , 'orderBy' => 'slug'));
+    $time = get_terms(array('taxonomy' => 'ppb-activity-time' , 'hide_empty' => false , 'order' => 'ASC' , 'orderBy' => 'slug'));
+    $cost = get_terms(array('taxonomy' => 'ppb-activity-price' , 'hide_empty' => false , 'order' => 'ASC' , 'orderBy' => 'slug'));
 
     $badges = new WP_Query(
         array(
             'post_type' => 'product',
             'posts_per_page' => -1,
-            'orderBy' => 'post_name',
+            'orderBy' => 'post_title',
             'order' => 'ASC',
             'tax_query' => array(
                 array(
@@ -23,9 +27,9 @@
     );
 
 
-    $ages = get_terms(array('taxonomy' => 'ppb-activity-age' , 'hide_empty' => false));
-    $skills = get_terms(array('taxonomy' => 'ppb-activity-soft-skills' , 'hide_empty' => false));
-    $subjects = get_terms(array('taxonomy' => 'ppb-activity-subject' , 'hide_empty' => false));
+    $ages = get_terms(array('taxonomy' => 'ppb-activity-age' , 'hide_empty' => false , 'order' => 'ASC' , 'orderBy' => 'slug'));
+    $skills = get_terms(array('taxonomy' => 'ppb-activity-soft-skills' , 'hide_empty' => false , 'order' => 'ASC' , 'orderBy' => 'slug'));
+    $subjects = get_terms(array('taxonomy' => 'ppb-activity-subject' , 'hide_empty' => false , 'order' => 'ASC' , 'orderBy' => 'slug'));
 
     $selected_types = $_GET['types'];
     $selected_seasons = $_GET['seasons'];
@@ -60,9 +64,9 @@
                     $checked_image_url = wp_get_attachment_url($checked_image_id);
 
                     if(in_array($term->slug , $selected_types)){
-                        echo '<label for="ppf_collection_'.$term->slug.'"><input checked value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="types[]"><span><img src="'.$checked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
+                        echo '<label for="ppf_collection_'.$term->slug.'"><input checked value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="types[]"><span><img src="'.$checked_image_url.'" data-unchecked="'.$unchecked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
                     }else{
-                        echo '<label for="ppf_collection_'.$term->slug.'"><input value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="types[]"><span><img src="'.$unchecked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
+                        echo '<label for="ppf_collection_'.$term->slug.'"><input value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="types[]"><span><img src="'.$unchecked_image_url.'" data-checked="'.$checked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
                     }
                 }
                 ?>
@@ -79,9 +83,9 @@
                     $checked_image_url = wp_get_attachment_url($checked_image_id);
 
                     if(in_array($term->slug , $selected_seasons)){
-                        echo '<label for="ppf_collection_'.$term->slug.'"><input checked value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="seasons[]"><span><img src="'.$checked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
+                        echo '<label for="ppf_collection_'.$term->slug.'"><input checked value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="seasons[]"><span><img src="'.$checked_image_url.'" data-unchecked="'.$unchecked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
                     }else{
-                        echo '<label for="ppf_collection_'.$term->slug.'"><input value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="seasons[]"><span><img src="'.$unchecked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
+                        echo '<label for="ppf_collection_'.$term->slug.'"><input value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="seasons[]"><span><img src="'.$unchecked_image_url.'" data-checked="'.$checked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
                     }
                 }
                 ?>
@@ -98,9 +102,9 @@
                     $checked_image_url = wp_get_attachment_url($checked_image_id);
 
                     if(in_array($term->slug , $selected_environment)){
-                        echo '<label for="ppf_collection_'.$term->slug.'"><input checked value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="environment[]"><span><img src="'.$checked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
+                        echo '<label for="ppf_collection_'.$term->slug.'"><input checked value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="environment[]"><span><img src="'.$checked_image_url.'" data-unchecked="'.$unchecked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
                     }else{
-                        echo '<label for="ppf_collection_'.$term->slug.'"><input value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="environment[]"><span><img src="'.$unchecked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
+                        echo '<label for="ppf_collection_'.$term->slug.'"><input value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="environment[]"><span><img src="'.$unchecked_image_url.'" data-checked="'.$checked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
                     }
                 }
                 ?>
@@ -117,9 +121,9 @@
                     $checked_image_url = wp_get_attachment_url($checked_image_id);
 
                     if(in_array($term->slug , $selected_time)){
-                        echo '<label for="ppf_collection_'.$term->slug.'"><input checked value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="time[]"><span><img src="'.$checked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
+                        echo '<label for="ppf_collection_'.$term->slug.'"><input checked value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="time[]"><span><img src="'.$checked_image_url.'" data-unchecked="'.$unchecked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
                     }else{
-                        echo '<label for="ppf_collection_'.$term->slug.'"><input value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="time[]"><span><img src="'.$unchecked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
+                        echo '<label for="ppf_collection_'.$term->slug.'"><input value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="time[]"><span><img src="'.$unchecked_image_url.'" data-checked="'.$checked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
                     }
                 }
                 ?>
@@ -136,9 +140,9 @@
                     $checked_image_url = wp_get_attachment_url($checked_image_id);
 
                     if(in_array($term->slug , $selected_cost)){
-                        echo '<label for="ppf_collection_'.$term->slug.'"><input checked value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="costs[]"><span><img src="'.$checked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
+                        echo '<label for="ppf_collection_'.$term->slug.'"><input checked value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="costs[]"><span><img src="'.$checked_image_url.'" data-unchecked="'.$unchecked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
                     }else{
-                        echo '<label for="ppf_collection_'.$term->slug.'"><input value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="costs[]"><span><img src="'.$unchecked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
+                        echo '<label for="ppf_collection_'.$term->slug.'"><input value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="costs[]"><span><img src="'.$unchecked_image_url.'" data-checked="'.$checked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
                     }
                 }
                 ?>
@@ -147,6 +151,15 @@
         </div>
 
         <div class="more-filters">
+
+            <div class="field">
+                <label for="_equipment" id="equipment_field">
+                    Equipment:
+                    <input type="text" name="_equipment">
+                    <div class="clear-results">X</div>
+                    <div class="results"></div>
+                </label>
+            </div>
 
             <div class="field">
                 <label for="_badge">
@@ -192,7 +205,7 @@
 
             <div class="field">
                 <label for="_skills">
-                    Slills:
+                    Skills:
                     <select name="_skills" id="_skills">
                         <?php if($selected_skills == ''){ ?>
                             <option value="" selected disabled>Select a Skill</option>
@@ -230,34 +243,30 @@
                 </label>
             </div>
 
-            <div class="field">
-                <label for="_equipment" id="equipment_field">
-                    Equipment:
-                    <input type="text" name="_equipment">
-                    <div class="clear-results">X</div>
-                    <div class="results"></div>
-                    <div class="chosen">
-                        <?php
-                            if(isset($_GET['equipment'])){
-                                foreach($_GET['equipment'] as $equipment){
-                                    $term = get_term($equipment ,'ppb-activity-equipment' , OBJECT);
-                                    echo '<input type="checkbox" checked name="equipment[]" value="'.$equipment.'"> '.$term->name.'<br/>';
-                                }
-                            }
-                        ?>
-                    </div>
-                </label>
+            <br clear="all"/>
+
+            <div class="equipment-chosen">
+                <?php
+                if(isset($_GET['equipment'])){
+                    foreach($_GET['equipment'] as $equipment){
+                        $term = get_term($equipment ,'ppb-activity-equipment' , OBJECT);
+                        echo '<div class="chosen"><p><input type="checkbox" checked name="equipment[]" value="'.$equipment.'"> '.$term->name.'<span>X</span></p></div>';
+                    }
+                }
+                ?>
             </div>
+
 
         </div>
 
         <div class="toggles">
             <input type="hidden" name="more_filters" value="hide">
+            <input type="hidden" name="scroll_pos">
+            <a href="javascript:void(0);" class="pp-btn link-pink more-toggle">More Filters</a>
+            <button style="display: inline-block !important;" type="submit" class="pp-btn pink">Update Filters</button>
             <?php if(isset($_GET['activity-filter'])){ ?>
                 <a href="<?=get_site_url().'/activities'?>" class="pp-btn navy">Clear Filters</a>
             <?php } ?>
-            <a href="javascript:void(0);" class="pp-btn pink more-toggle">More Filters</a>
-            <button style="display: inline-block !important;" type="submit" class="pp-btn pink">Update Filters</button>
         </div>
 
     </form>
@@ -294,6 +303,36 @@
 
     });
 
+    $('.activity-filter select , .activity-filter input').change(function () {
+
+        $('.activity-filter button').prop('disabled' , false);
+
+    });
+
+    $('.activity-filter .collections .collection label span').click(function (e) {
+
+        e.preventDefault();
+
+        if($(this).parent().find('input').is(':checked')){
+            $(this).parent().find('input').prop('checked' , false);
+        }else{
+            $(this).parent().find('input').prop('checked' , true);
+        }
+
+        var img = $(this).find('img');
+
+        if(img.data('checked')){
+
+            img.attr('src' , img.data('checked'));
+
+        }else{
+
+            img.attr('src' , img.data('unchecked'));
+
+        }
+
+    });
+
     $('body').on('click' , '.clear-results' , function () {
         $('#equipment_field .results').empty();
         $('input[name="_equipment"]').val('');
@@ -307,8 +346,12 @@
 
         var id = $(this).data('id');
 
-        $('body #equipment_field .chosen').append('<input type="checkbox" checked name="equipment[]" value="'+id+'"> '+$(this).html()+'<br/>');
+        $('.equipment-chosen').append('<div class="chosen"><p><input type="checkbox" checked name="equipment[]" value="'+id+'"> '+$(this).html()+'<span>X</span></p></div>');
 
+    });
+
+    $('body').on('click' , '.equipment-chosen .chosen span' , function () {
+        $(this).parents('.chosen').remove();
     });
 
     $('body .toggles').click(function () {
@@ -329,6 +372,18 @@
 
     <?php if(isset($_GET['more_filters']) && $_GET['more_filters'] == 'show'){ ?>
         $('.toggles .more-toggle').click();
+    <?php } ?>
+
+    $(window).scroll(function () {
+        $('input[name="scroll_pos"]').val($(window).scrollTop());
+    });
+
+    <?php if(isset($_GET['scroll_pos'])){ ?>
+
+        $('html, body').animate({
+            scrollTop: <?=$_GET['scroll_pos']?>
+        }, 2000);
+
     <?php } ?>
 
 </script>

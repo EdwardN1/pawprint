@@ -28,6 +28,8 @@ if(isset($_GET['delete-account'])){
     <?php
 }
 
+$user_id = get_current_user_id()
+
 ?>
 
 <form class="woocommerce-EditAccountForm edit-account" action="" method="post" enctype="multipart/form-data" <?php do_action( 'woocommerce_edit_account_form_tag' ); ?> >
@@ -38,7 +40,7 @@ if(isset($_GET['delete-account'])){
     <p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
         <label for="account_profile_pic"><?php esc_html_e( 'Profile Pic', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
         <?php
-            $profile_pic = get_user_meta($user->ID , 'account_profile_pic' , true);
+            $profile_pic = get_user_meta($user_id , 'account_profile_pic' , true);
             $profile_image = wp_get_attachment_url($profile_pic);
         ?>
         <span class="account_profile_pic_toggle" style="background: #eee url('<?=$profile_image?>')" title="<?=basename($profile_image)?>">
@@ -71,7 +73,7 @@ if(isset($_GET['delete-account'])){
 
     <hr>
 
-    <?php $hear = get_user_meta($user->ID , '_hear' , true); ?>
+    <?php $hear = get_user_meta($user_id , '_hear' , true); ?>
 
     <p>
         <label for="">Where did you first hear about us?</label>
@@ -88,7 +90,7 @@ if(isset($_GET['delete-account'])){
         </div>
     </p>
 
-    <?php $groups = get_user_meta($user->ID , '_groups' , true); $groups = json_decode($groups); ?>
+    <?php $groups = get_user_meta($user_id , '_groups' , true); $groups = json_decode($groups); ?>
 
     <p>
         <label for="">Which groups do you order for? (Select all relevant options)</label>
@@ -103,7 +105,7 @@ if(isset($_GET['delete-account'])){
         </div>
     </p>
 
-    <?php $ages = get_user_meta($user->ID , '_ages' , true); $ages = json_decode($ages); ?>
+    <?php $ages = get_user_meta($user_id , '_ages' , true); $ages = json_decode($ages); ?>
 
     <p>
         <label for="">Which age groups do you order for? (Select all relevant options)</label>

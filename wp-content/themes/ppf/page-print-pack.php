@@ -83,22 +83,22 @@ if( isset( $_GET['challenge_id'] ) ) {
     </head>
     ";
 
-    $title = '<table width="100%">
-                        <tbody>
-                            <tr>
-                                <td align="center">
-                                 <strong>'.$pack->name.'</strong>
-                                </td>
-                            </tr>
-                        </tbody>
-                     </table>';
+    $title = '<table>
+                <tbody>
+                    <tr>
+                        <td align="center">
+                         <strong style="font-size: 30px;">'.$pack->name.'</strong>
+                        </td>
+                    </tr>
+                </tbody>
+             </table>';
 
     $badgeTextHtml = '<table width="100%">
                         <tbody>
                             <tr>
                                 <td align="center">
                                  <strong>'.get_the_title($badge).'</strong><br/>
-                                 <span>'.date('jS F Y' , strtotime($pack->date_created)).'</span>
+                                 <span>'.date('jS F Y' , strtotime($pack->download_date)).'</span>
                                 </td>
                             </tr>
                         </tbody>
@@ -126,7 +126,7 @@ if( isset( $_GET['challenge_id'] ) ) {
 
     $pdf->SetTitle('challenge-pack-'.sanitize_title($pack->name));
     $pdf->WriteHTML($head_css);
-    $pdf->WriteFixedPosHTML($title , 85 , 55 , '40' , '10');
+    $pdf->WriteFixedPosHTML($title , 45 , 55 , 200 , '10');
     $pdf->Image(get_attached_file($badgeImageId) , 70, 65, 70, 70, 'png', '', true, false);
     $pdf->WriteHTML($badgeTextHtml);
 

@@ -12,6 +12,11 @@
   font-size: 1rem !important;
   cursor: pointer !important;
 
+  &:disabled{
+    background: grey !important;
+    color: white !important;
+  }
+
   &:hover{
     text-decoration: underline;
   }
@@ -21,5 +26,9 @@
   &.teal{ background: $trails; color: #FFF; }
   &.yellow{ background: $tales; color: #FFF; }
   &.orange{ background: $trust; color: #FFF; }
+
+  &.link-pink{
+    background: none; color: $badges; text-decoration: underline !important;
+  }
 
 }

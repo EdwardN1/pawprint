@@ -54,34 +54,6 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
                         <?php elseif ( 'order-status' === $column_id ) : ?>
 
-                            <?php
-                                switch (wc_get_order_status_name( $order->get_status() )){
-
-                                    case 'Awaiting Payment':
-                                    case 'Processing':
-
-                                        echo '<img src="https://pawprintfamily.com/wp-content/uploads/2020/03/order-orange-dot.png" style="width: 14px !important; margin-right: 5px !important; display: inline-block !important; vertical-align: middle !important;">';
-
-                                        break;
-
-                                    case 'Refunded':
-                                    case 'Cancelled':
-
-                                        echo '<img src="https://pawprintfamily.com/wp-content/uploads/2020/03/order-red-dot.png" style="width: 14px !important; margin-right: 5px !important; display: inline-block !important; vertical-align: middle !important;">';
-
-                                        break;
-
-                                    case 'Complete':
-
-                                        echo '<img src="https://pawprintfamily.com/wp-content/uploads/2020/03/order-red-dot.png" style="width: 14px !important; margin-right: 5px !important; display: inline-block !important; vertical-align: middle !important;">';
-
-                                        break;
-
-                                }
-                            ?>
-
-                            <?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?>
-
                         <?php elseif ( 'order-total' === $column_id ) : ?>
                             <?php
                             /* translators: 1: formatted order total 2: total order items */
@@ -132,10 +104,10 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
 <?php else : ?>
     <div class="woocommerce-message woocommerce-message--info woocommerce-Message woocommerce-Message--info woocommerce-info">
-        <a class="woocommerce-Button button" href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
+        <a class="woocommerce-Button button" href="<?php echo esc_url( get_site_url().'/product-category/badges/?orderby=date'); ?>">
             <?php esc_html_e( 'Browse products', 'woocommerce' ); ?>
         </a>
-        <?php esc_html_e( 'No order has been made yet.', 'woocommerce' ); ?>
+        <?php esc_html_e( 'No orders have been placed yet', 'woocommerce' ); ?>
     </div>
 <?php endif; ?>
 

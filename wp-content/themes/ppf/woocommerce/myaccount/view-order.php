@@ -13,7 +13,7 @@
     </div>
     <div class="item">
         <p>
-            <strong>Order Stats:</strong>
+            <strong>Order Status:</strong>
             <?php
 
             switch (wc_get_order_status_name( $order->get_status() )){
@@ -145,6 +145,7 @@
                                     <p><b>Unique Trail Answers ID:</b> <?=$data['value']?></p>
                                 <?php } ?>
                             <?php } ?>
+                            <?=$product->get_purchase_note()?>
                         </div>
                     </td>
                     <td>£<?=number_format(round($itemdata['subtotal'], 2) , 2)?></td>
@@ -179,7 +180,7 @@
     <?php
         if(!empty($dates)){
             $date = max($dates);
-            $dateFormat = date('F d, Y' , $date);
+            $dateFormat = date('jS F Y' , $date);
             echo '<p class="cart-delivery-date">Based on the products that are in your basket, the estimated dispatch date for your order is:<br/>'.$dateFormat.'</p>';
         }
     ?>

@@ -30,6 +30,22 @@ header{
           border-bottom: 2px solid $badges;
         }
 
+        ::-webkit-input-placeholder { /* Edge */
+          color: $primary-blue;
+          font-family: 'Tajawal' !important;
+          font-size: 14px;
+        }
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+          color: $primary-blue;
+          font-family: 'Tajawal' !important;
+          font-size: 14px;
+        }
+        ::placeholder {
+          color: $primary-blue;
+          font-family: 'Tajawal' !important;
+          font-size: 14px;
+        }
+
         input[type="text"],
         input[type="search"]{
           width: 200px;
@@ -45,6 +61,7 @@ header{
           background-size: contain !important;
           border: 0px !important;
           text-indent: -99999px;
+          cursor: pointer !important;
         }
 
       }
@@ -55,6 +72,16 @@ header{
 
         &.mobile{
           display: none;
+        }
+
+        p{
+          margin-bottom: 0px !important;
+          margin-top: 5px !important;
+
+          a{
+            color: $badges !important;
+          }
+
         }
 
         ul{
@@ -147,7 +174,7 @@ header{
 }
 
 body.logged-in header#masthead .header-top-section .search-container {
-  width: calc(100% - 418px);
+  width: calc(100% - 429px);
 }
 
 p#breadcrumbs{
@@ -173,10 +200,12 @@ li.has-dropdown{
     left: 0px;
     display: none;
     clear: both;
-    background: #FFF !important;
     z-index: 1000;
     text-align: left !important;
     box-sizing: border-box;
+    background-size: 130px auto !important;
+    background-position: 10px 98% !important;
+    background-repeat: no-repeat !important;
 
     &:after{
       display: block;
@@ -239,6 +268,18 @@ li.has-dropdown{
           position: relative;
           text-decoration: none !important;
 
+          span{
+            &:after{
+              width: 100%;
+              height: 2px;
+              display: block;
+              clear: both;
+              content: ' ';
+              top: 100%;
+              left: 0px;
+            }
+          }
+
           &:hover{
 
             &:after{
@@ -255,16 +296,6 @@ li.has-dropdown{
             span{
               display: inline-block;
 
-              &:after{
-                width: 100%;
-                height: 2px;
-                display: block;
-                clear: both;
-                content: ' ';
-                top: 100%;
-                left: 0px;
-              }
-
             }
 
           }
@@ -276,24 +307,27 @@ li.has-dropdown{
     }
 
     &.badges{
+      background: #FFF url("../icons/dropdown-logo-1.png") no-repeat;
       .right{ background: $badges; }
       ul li a:hover{ color: $badges !important; }
       ul li a:after{ border-left-color: $badges !important; }
-      ul li a span:after{ background: $badges !important; }
+      ul li a:hover span:after{ background: $badges !important; }
     }
 
     &.trails{
+      background: #FFF url("../icons/dropdown-logo-2.png") no-repeat;
       .right{ background: $trails; }
       ul li a:hover{ color: $trails !important; }
       ul li a:after{ border-left-color: $trails !important; }
-      ul li a span:after{ background: $trails !important; }
+      ul li a:hover span:after{ background: $trails !important; }
     }
 
     &.tales{
+      background: #FFF url("../icons/dropdown-logo-3.png") no-repeat;
       .right{ background: $tales; }
       ul li a:hover{ color: $tales !important; }
       ul li a:after{ border-left-color: $tales !important; }
-      ul li a span:after{ background: $tales !important; }
+      ul li a:hover span:after{ background: $tales !important; }
     }
 
   }
@@ -302,6 +336,7 @@ li.has-dropdown{
 
 .latest-carousel{
   position: relative;
+  margin-top: 10px !important;
 
   .owl-dots{
     display: none;
@@ -310,10 +345,10 @@ li.has-dropdown{
   .owl-nav{
     display: block !important;
     height: 40px;
-    width: calc(100% + 30px);
+    width: calc(100% + 35px);
     position: absolute;
     top: calc(50% - 20px);
-    left: -10px;
+    left: -15px;
 
     .owl-prev{ float: left; color: transparent; }
     .owl-next{ float: right; color: transparent; }
@@ -348,4 +383,23 @@ li.has-dropdown{
 
 .mobile-account{
   display: none;
+}
+
+.forgotpassword:hover{
+  text-decoration: underline !important;
+}
+
+button[name="save_account_details"]{
+  background: $primary-blue !important;
+  font-family: 'billy-regular' !important;
+  border-radius: 0px !important;
+  color: #FFF !important;
+}
+
+.delete-account{
+  background: red !important;
+  font-family: 'billy-regular' !important;
+  border-radius: 0px !important;
+  color: #FFF !important;
+  float: right;
 }

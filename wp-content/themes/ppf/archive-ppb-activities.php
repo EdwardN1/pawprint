@@ -18,11 +18,6 @@ if ( ! empty( $content_css ) ) { ?>
 
         <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; ?>
 
-        <div class="results-are-in">
-            <h2>The results are in!</h2>
-            <p><?=$GLOBALS['wp_query']->found_posts?> results found (showing <?=($paged == 1) ? $paged : $GLOBALS['wp_query']->post_count*($paged-1)?> - <?=($paged == 1) ? $GLOBALS['wp_query']->post_count : $GLOBALS['wp_query']->post_count*$paged?>)</p>
-        </div>
-
     <?php } ?>
 
     <?php
@@ -41,6 +36,15 @@ if ( ! empty( $content_css ) ) { ?>
 
     <?php get_template_part('template-parts/activity' , 'filter'); ?>
 
+    <?php if(isset($_GET['activity-filter'])){ ?>
+
+        <div class="results-are-in">
+            <h2>The results are in!</h2>
+            <p><?=$GLOBALS['wp_query']->found_posts?> results found (showing <?=($paged == 1) ? $paged : $GLOBALS['wp_query']->post_count*($paged-1)?> - <?=($paged == 1) ? $GLOBALS['wp_query']->post_count : $GLOBALS['wp_query']->post_count*$paged?>)</p>
+        </div>
+
+    <?php } ?>
+
     <ul class="activities_listings">
         <?php
             while(have_posts()){ the_post();
@@ -56,6 +60,14 @@ if ( ! empty( $content_css ) ) { ?>
             'next_text' => '>',
         ));
     ?>
+
+<?php }else{ ?>
+
+<div class="text-center">
+    <br>
+    <img style="max-width:400px;" src="<?=get_site_url()?>/wp-content/uploads/2020/03/Rik-Bear-Hard-Hat-01.png" alt="">
+    <h2>Sorry there are currently no activities matching search criteria.</h2>
+</div>
 
 <?php } ?>
 
