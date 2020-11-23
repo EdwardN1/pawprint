@@ -129,15 +129,15 @@
 		<nav id="site-navigation" class="main-navigation">
 			<ul>
                 <li class="has-dropdown">
-                    <a href="https://pawprintfamily.com/product-category/badges/">Pawprint Badges</a>
+                    <a href="/product-category/badges/">Pawprint Badges</a>
                     <?php echo get_template_part('template-parts/menu-badges' , 'dropdown'); ?>
                 </li>
                 <li class="has-dropdown">
-                    <a href="https://pawprintfamily.com/product-category/trails/">Pawprint Trails</a>
+                    <a href="/product-category/trails/">Pawprint Trails</a>
                     <?php echo get_template_part('template-parts/menu-trails' , 'dropdown'); ?>
                 </li>
                 <li class="has-dropdown">
-                    <a href="https://pawprintfamily.com/product-category/tales/">Pawprint Tales</a>
+                    <a href="/product-category/tales/">Pawprint Tales</a>
                     <?php echo get_template_part('template-parts/menu-tales' , 'dropdown'); ?>
                 </li>
                 <li>
