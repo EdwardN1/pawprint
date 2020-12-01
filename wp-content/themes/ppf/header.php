@@ -96,33 +96,43 @@
 
                 <div class="shop-actions desktop">
                     <ul>
-                        <li>
-                            <a href="<?= get_site_url() ?>/contact-us/">
-                                <img src="<?= get_site_url() ?>/wp-content/uploads/2020/02/Contact-1.png" alt="">
+                        <!--<li>
+                            <a href="<?/*= get_site_url() */?>/contact-us/">
+                                <img src="<?/*= get_site_url() */?>/wp-content/uploads/2020/02/Contact-1.png" alt="">
                                 Contact
                             </a>
-                        </li>
+                        </li>-->
+
                         <li>
-                            <a href="" class="lrm-login lrm-hide-if-logged-in">
-                                <img src="<?= get_site_url() ?>/wp-content/uploads/2020/02/account-icon.png" alt="">
-                                Login
-                            </a>
-                            <a href="<?= get_site_url() ?>/my-account/edit-account/" class="lrm-show-if-logged-in">
-                                <img src="<?= get_site_url() ?>/wp-content/uploads/2020/02/account-icon.png" alt="">
-                                My Account
-                            </a>
+
+                        <?php if (is_user_logged_in()) {
+                            $userdata = get_userdata(get_current_user_id()); ?>
+
+                            <p style="text-align: center;">
+                                <a href="<?= get_site_url() ?>/my-account/edit-account/" class="lrm-show-if-logged-in">
+                                    <img src="<?= get_template_directory_uri() ?>/assets/img/white-account.png" alt="">
+
+                                </a>
+                                <span style="color: #ffffff; padding-top: 0.5em; display: block;"> Hello, <?= $userdata->first_name ?> </br> (not you? <a href="<?= wc_logout_url() ?>">Log Out</a>)</span></p>
+                        <?php } else {
+                            ?>
+                            <p style="text-align: center;">
+                                <a href="" class="lrm-login lrm-hide-if-logged-in">
+                                    <img src="<?= get_template_directory_uri() ?>/assets/img/white-account.png" alt="">
+                                </a>
+                                Login</p>
+                            <?php
+                        } ?>
                         </li>
+
                         <li>
                             <a href="<?= get_site_url() ?>/cart/">
-                                <img src="<?= get_site_url() ?>/wp-content/uploads/2020/02/basket-icon.png" alt="">
+                                <img src="<?= get_template_directory_uri() ?>/assets/img/white-cart.png" alt="">
                                 Basket
                             </a>
                         </li>
                     </ul>
-                    <?php if (is_user_logged_in()) {
-                        $userdata = get_userdata(get_current_user_id()); ?>
-                        <p>Hello <?= $userdata->first_name ?> (not you? <a href="<?= wc_logout_url() ?>">Log Out</a>)</p>
-                    <?php } ?>
+
                 </div>
                 <div class="shop-actions mobile">
                     <ul>
