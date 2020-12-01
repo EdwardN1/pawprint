@@ -1,4 +1,8 @@
 #page{
+
+}
+
+#content {
   max-width: 1396px;
   margin: 0 auto;
   padding: 0 15px;
@@ -6,10 +10,16 @@
   clear: both;
 }
 
-
-
 .content-area{
   padding: 0 15px;
+}
+
+.new-wrap {
+  max-width: 1396px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: block;
+  clear: both;
 }
 
 .content-area{
