@@ -5,7 +5,7 @@ $trails = new WP_Query(
         'posts_per_page' => 6,
         'orderBy' => 'ID',
         'post_status' => 'publish',
-        'order' => DESC,
+        'order' => 'DESC',
         'tax_query' => array(
             array(
                 'taxonomy' => 'product_cat',
