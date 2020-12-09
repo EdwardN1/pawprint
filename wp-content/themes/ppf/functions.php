@@ -196,7 +196,8 @@ function ppf_scripts() {
 	wp_enqueue_style( 'ppf-style', get_stylesheet_uri() );
     wp_enqueue_style('owl-carousel' , 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css');
     wp_enqueue_style('owl-carousel-theme' , 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css');
-    wp_enqueue_style( 'ppf-style-css', get_template_directory_uri().'/assets/css/ppf.css' );
+    wp_enqueue_style( 'ppf-style-css', get_template_directory_uri().'/assets/css/ppf.css', 'ppf-style', filemtime(get_template_directory_uri().'/assets/css/ppf.css'), 'all' );
+    wp_enqueue_style( 'jamie-style-css', get_template_directory_uri().'/assets/css/jamie.css', 'ppf-style-css', filemtime(get_template_directory_uri().'/assets/css/jamie.css'), 'all' );
     wp_enqueue_style( 'ppf-style-updates', get_template_directory_uri().'/assets/css/updates.css' );
 
 	wp_enqueue_script( 'ppf-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -1058,4 +1059,10 @@ function replacing_add_to_cart_button( $button, $product  ) {
 
     return $button;
 
+}
+
+define('FUNCTIONSPATH', get_template_directory() . '/functions/includes/');
+foreach (glob(FUNCTIONSPATH.'autoinc-*.php') as $filename)
+{
+    require_once ($filename);
 }

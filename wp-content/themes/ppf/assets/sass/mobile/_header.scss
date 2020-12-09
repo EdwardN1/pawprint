@@ -1,5 +1,10 @@
 @media only screen and (max-width: 425px) {
 
+  header#masthead {
+    position: relative;
+    height: auto;
+  }
+
   h1{
     font-size: 1.2em !important;
   }
@@ -18,6 +23,10 @@
 
   header#masthead .header-top-section .site-branding{
     width: 150px;
+    position: relative;
+    &.desktop {
+      display: none;
+    }
 
     *{
       width: 100%;
@@ -113,13 +122,33 @@
 
   header#masthead .header-top-section .search-container{
     display: none;
+    &.mobile {
+      display: block;
+      width: 100%;
+      input[type=search] {
+        height: 38px;
+      }
+    }
   }
 
   header#masthead .header-top-section .shop-actions {
     display: inline-block;
     vertical-align: middle;
-    width: calc(100% - 155px);
+    /*width: calc(100% - 155px);*/
+    width: 100%;
+    max-width: 425px;
     text-align: right;
+    padding-top: 16px;
+    height: 128px;
+    > ul {
+      width: 100%;
+      .mobile-logo {
+        width: calc(100% - 120px);
+        img {
+          height: 3.7em;
+        }
+      }
+    }
   }
 
   header#masthead .header-top-section .shop-actions ul{
@@ -158,7 +187,7 @@
       span{
         width: 20px;
         height: 3px;
-        background: $badges;
+        background: #ffffff;
         position: absolute;
         top: calc(50% - 1.5px);
         left: 0px;
@@ -170,7 +199,7 @@
           display: block;
           clear: both;
           content: ' ';
-          background: $badges;
+          background: #ffffff;
           position: absolute;
           left: 0px;
         }

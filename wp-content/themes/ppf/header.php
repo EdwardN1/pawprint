@@ -84,74 +84,110 @@
 
             <div class="header-top-section">
 
-                <div class="site-branding">
+                <div class="site-branding desktop">
                     <?php
                     the_custom_logo();
                     ?>
                 </div>
 
                 <div class="search-container">
-                    <?php echo get_search_form() ?>
+                    <div class="search-wrapper">
+                        <?php echo get_search_form() ?>
+                    </div>
                 </div>
 
                 <div class="shop-actions desktop">
                     <ul>
                         <!--<li>
-                            <a href="<?/*= get_site_url() */?>/contact-us/">
-                                <img src="<?/*= get_site_url() */?>/wp-content/uploads/2020/02/Contact-1.png" alt="">
+                            <a href="<? /*= get_site_url() */ ?>/contact-us/">
+                                <img src="<? /*= get_site_url() */ ?>/wp-content/uploads/2020/02/Contact-1.png" alt="">
                                 Contact
                             </a>
                         </li>-->
 
                         <li>
 
-                        <?php if (is_user_logged_in()) {
-                            $userdata = get_userdata(get_current_user_id()); ?>
+                            <?php if (is_user_logged_in()) {
+                                $userdata = get_userdata(get_current_user_id()); ?>
 
-                            <p style="text-align: center;">
-                                <a href="<?= get_site_url() ?>/my-account/edit-account/" class="lrm-show-if-logged-in">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/img/white-account.png" alt="">
+                                <p style="text-align: center;">
+                                    <a href="<?= get_site_url() ?>/my-account/edit-account/"
+                                       class="lrm-show-if-logged-in">
+                                        <img src="<?= get_template_directory_uri() ?>/assets/img/SVG/Account.svg"
+                                             alt="">
 
-                                </a>
-                                <span style="color: #ffffff; padding-top: 0.5em; display: block;"> Hello, <?= $userdata->first_name ?> </br> (not you? <a href="<?= wc_logout_url() ?>">Log Out</a>)</span></p>
-                        <?php } else {
-                            ?>
-                            <p style="text-align: center;">
-                                <a href="" class="lrm-login lrm-hide-if-logged-in">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/img/white-account.png" alt="">
-                                </a>
-                                Login</p>
-                            <?php
-                        } ?>
+                                    </a>
+                                    <span style="color: #ffffff; padding-top: 0.5em; display: block;"> Hello, <?= $userdata->first_name ?> </br>
+                                        (not you? <a href="<?= wc_logout_url() ?>">Log Out</a>)</span></p>
+                            <?php } else {
+                                ?>
+                                <p style="text-align: center;">
+                                    <a href="" class="lrm-login lrm-hide-if-logged-in">
+                                        <img src="<?= get_template_directory_uri() ?>/assets/img/SVG/Account.svg"
+                                             alt="">
+                                    </a>
+                                    <span class="login-text">Login</span></p>
+                                <?php
+                            } ?>
                         </li>
 
-                        <li>
-                            <a href="<?= get_site_url() ?>/cart/">
-                                <img src="<?= get_template_directory_uri() ?>/assets/img/white-cart.png" alt="">
+                        <!--<li>
+                            <a href="<?/*= get_site_url() */?>/cart/">
+                                <img src="<?/*= get_template_directory_uri() */?>/assets/img/SVG/Basket.svg" alt=""
+                                     class="basket-icon">
                                 Basket
                             </a>
+                        </li>-->
+
+                        <li>
+                            <a href="<?php echo wc_get_cart_url(); ?>" class="cart-customlocation">
+                                <img src="<?= get_template_directory_uri() ?>/assets/img/SVG/Basket.svg" alt=""
+                                     class="basket-icon"> <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+                                 <?php echo WC()->cart->get_cart_total(); ?></a>
+                            </a>
                         </li>
+
                     </ul>
 
                 </div>
                 <div class="shop-actions mobile">
                     <ul>
                         <li>
-                            <a href="<?= get_site_url() ?>/contact-us/">
-                                <img src="<?= get_site_url() ?>/wp-content/uploads/2020/02/Contact-1.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= get_site_url() ?>/cart/">
-                                <img src="<?= get_site_url() ?>/wp-content/uploads/2020/02/basket-icon.png" alt="">
-                            </a>
-                        </li>
-                        <li>
                             <a href="javascript:void(0);" class="mobile_menu_toggle">
                                 <span></span>
                             </a>
                         </li>
+                        <li class="mobile-logo">
+                                <?php
+                                the_custom_logo();
+                                ?>
+
+                        </li>
+                        <!--<li>
+                            <a href="<?/*= get_site_url() */?>/contact-us/">
+                                <img src="<?/*= get_site_url() */?>/wp-content/uploads/2020/02/Contact-1.png" alt="">
+                            </a>
+                        </li>-->
+                        <!--<li>
+                            <a href="<?/*= get_site_url() */?>/cart/">
+                                <img src="<?/*= get_template_directory_uri() */?>/assets/img/SVG/Basket.svg" alt=""
+                                     class="basket-icon">
+                            </a>
+                        </li>-->
+                        <li>
+                            <a href="<?php echo wc_get_cart_url(); ?>" class="cart-customlocation">
+                                <img src="<?= get_template_directory_uri() ?>/assets/img/SVG/Basket.svg" alt=""
+                                     class="basket-icon"> <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+                                <?php echo WC()->cart->get_cart_total(); ?></a>
+                            </a>
+                        </li>
+
                     </ul>
+                    <div class="search-container mobile">
+                        <div class="search-wrapper">
+                            <?php echo get_search_form() ?>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -177,14 +213,14 @@
                     <li><a href="<?= get_site_url() ?>/about-us/">About Us</a></li>
                     <li><a href="<?= get_site_url() ?>/faqs/">FAQS</a></li>
                 </ul>
-                <?php echo get_search_form() ?>
+                <?php //echo get_search_form() ?>
                 <div class="mobile-account">
                     <a href="" class="lrm-login lrm-hide-if-logged-in">
-                        <img src="<?= get_site_url() ?>/wp-content/uploads/2020/02/account-icon.png" alt="">
-                        Login
+                        <img src="<?= get_template_directory_uri() ?>/assets/img/SVG/Account.svg" alt="">
+                        <span class="login-text">Login</span>
                     </a>
                     <a href="<?= get_site_url() ?>/my-account/edit-account/" class="lrm-show-if-logged-in">
-                        <img src="<?= get_site_url() ?>/wp-content/uploads/2020/02/account-icon.png" alt="">
+                        <img src="<?= get_template_directory_uri() ?>/assets/img/SVG/Account.svg" alt="">
                         My Account
                     </a>
                     <?php if (is_user_logged_in()) {
