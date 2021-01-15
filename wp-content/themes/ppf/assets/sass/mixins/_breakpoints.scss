@@ -1,0 +1,9 @@
+/// Mixin to manage responsive breakpoints
+/// @author Edward Nickerson
+/// @param {String} $breakpoint - Breakpoint value
+
+@mixin breakpoint($breakpoint) {
+@media (min-width: $breakpoint) {
+@content;
+}
+}

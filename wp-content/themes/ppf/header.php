@@ -117,8 +117,8 @@
                                              alt="">
 
                                     </a>
-                                    <span style="color: #ffffff; padding-top: 0.5em; display: block;"> Hello, <?= $userdata->first_name ?> </br>
-                                        (not you? <a href="<?= wc_logout_url() ?>">Log Out</a>)</span></p>
+                                    <span style="color: #ffffff; padding-top: 4px; display: block;"> Hello, <?= $userdata->first_name ?> </br>
+                                        <!--(not you? <a href="<?/*= wc_logout_url() */?>">Log Out</a>)--></span></p>
                             <?php } else {
                                 ?>
                                 <p style="text-align: center;">
