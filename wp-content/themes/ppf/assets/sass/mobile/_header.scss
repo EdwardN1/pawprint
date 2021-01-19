@@ -1,4 +1,4 @@
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 625px) {
 
   header#masthead {
     position: relative;
@@ -14,7 +14,7 @@
   }
 
   .header-top-section{
-    padding: 0 15px;
+    //padding: 0 15px;
   }
 
   body.home header#masthead{
@@ -47,7 +47,7 @@
     transition: top ease-in-out 500ms;
 
     &.moved{
-      top: 128px;
+      top: 74px;
     }
 
     .textwidget{
@@ -136,16 +136,42 @@
     vertical-align: middle;
     /*width: calc(100% - 155px);*/
     width: 100%;
-    max-width: 425px;
-    text-align: right;
+    //max-width: 425px;
+    //text-align: right;
     padding-top: 16px;
-    height: 128px;
-    > ul {
+    height: 75px;
+    > ul, > .flex-grid {
       width: 100%;
+      li {
+        max-width: 150px;
+        @include breakpoint(415px) {
+          max-width: none;
+        }
+      }
+      .mobile-burger-menu {
+        margin: 0;
+        padding-top: 5px;
+      }
       .mobile-logo {
-        width: calc(100% - 120px);
+        //width: calc(100% - 120px);
         img {
-          height: 3.7em;
+          height: 38px;
+          margin-left: 0;
+          width: auto;
+        }
+      }
+      .basket-icon {
+        height: 30px;
+        width: auto;
+      }
+      .search-container {
+        padding-left: 5px;
+        padding-right: 5px;
+        input[type=search] {
+          width: 29vw;
+          @include breakpoint(374px) {
+            width: 39vw;
+          }
         }
       }
     }

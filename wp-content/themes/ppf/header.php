@@ -151,18 +151,43 @@
 
                 </div>
                 <div class="shop-actions mobile">
-                    <ul>
-                        <li>
+                    <div class="flex-grid mobile-burger-menu">
+                        <div class="col mobile-burger-menu">
+                            <a href="javascript:void(0);" class="mobile_menu_toggle">
+                                <span></span>
+                            </a>
+                        </div>
+                        <div class="col mobile-logo">
+                            <?php
+                            the_custom_logo();
+                            ?>
+                        </div>
+                        <div class="col">
+                            <div class="search-container mobile">
+                                <div class="search-wrapper">
+                                    <?php echo get_search_form() ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <a href="<?php echo wc_get_cart_url(); ?>">
+                                <img src="<?= get_template_directory_uri() ?>/assets/img/SVG/Basket.svg" alt=""
+                                     class="basket-icon"> </a>
+                            </a>
+                        </div>
+                    </div>
+                    <!--<ul>
+                        <li class="mobile-burger-menu">
                             <a href="javascript:void(0);" class="mobile_menu_toggle">
                                 <span></span>
                             </a>
                         </li>
                         <li class="mobile-logo">
                                 <?php
-                                the_custom_logo();
-                                ?>
+/*                                the_custom_logo();
+                                */?>
 
-                        </li>
+                        </li>-->
                         <!--<li>
                             <a href="<?/*= get_site_url() */?>/contact-us/">
                                 <img src="<?/*= get_site_url() */?>/wp-content/uploads/2020/02/Contact-1.png" alt="">
@@ -174,20 +199,31 @@
                                      class="basket-icon">
                             </a>
                         </li>-->
-                        <li>
-                            <a href="<?php echo wc_get_cart_url(); ?>" class="cart-customlocation">
-                                <img src="<?= get_template_directory_uri() ?>/assets/img/SVG/Basket.svg" alt=""
-                                     class="basket-icon"> <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
-                                <?php echo WC()->cart->get_cart_total(); ?></a>
-                            </a>
+                       <!-- <li>
+                            <div class="search-container mobile">
+                                <div class="search-wrapper">
+                                    <?php /*echo get_search_form() */?>
+                                </div>
+                            </div>
                         </li>
+                        <li style="float:right;">
+                            <a href="<?php /*echo wc_get_cart_url(); */?>">
+                                <img src="<?/*= get_template_directory_uri() */?>/assets/img/SVG/Basket.svg" alt=""
+                                     class="basket-icon"> </a>
+                            </a>-->
+                            <!--<a href="<?php /*echo wc_get_cart_url(); */?>" class="cart-customlocation">
+                                <img src="<?/*= get_template_directory_uri() */?>/assets/img/SVG/Basket.svg" alt=""
+                                     class="basket-icon"> <span class="cart-count"><?php /*echo WC()->cart->get_cart_contents_count(); */?></span>
+                                <?php /*echo WC()->cart->get_cart_total(); */?></a>
+                            </a>-->
+                       <!-- </li>
 
-                    </ul>
-                    <div class="search-container mobile">
+                    </ul>-->
+                    <!--<div class="search-container mobile">
                         <div class="search-wrapper">
-                            <?php echo get_search_form() ?>
+                            <?php /*echo get_search_form() */?>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
 
             </div>
