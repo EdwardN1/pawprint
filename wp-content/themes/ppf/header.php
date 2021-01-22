@@ -216,9 +216,7 @@
                                      class="basket-icon"> <span class="cart-count"><?php /*echo WC()->cart->get_cart_contents_count(); */?></span>
                                 <?php /*echo WC()->cart->get_cart_total(); */?></a>
                             </a>-->
-                       <!-- </li>
-
-                    </ul>-->
+                       /
                     <!--<div class="search-container mobile">
                         <div class="search-wrapper">
                             <?php /*echo get_search_form() */?>

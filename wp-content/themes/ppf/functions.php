@@ -45,6 +45,10 @@ if ( ! function_exists( 'ppf_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'ppf' ),
+            'footer-1' => esc_html__( 'Footer 1', 'ppf' ),
+            'footer-2' => esc_html__( 'Footer 2', 'ppf' ),
+            'footer-3' => esc_html__( 'Footer 3', 'ppf' ),
+            'footer-4' => esc_html__( 'Footer 4', 'ppf' ),
 		) );
 
 		/*

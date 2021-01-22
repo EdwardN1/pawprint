@@ -97,15 +97,46 @@
         </div>
     </div>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-            <?php dynamic_sidebar('footer-data') ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+	<footer>
+        <div class="flex-grid nav-menus">
+            <div class="col">
+                <?php
+                echo '<h4>'.wp_get_nav_menu_name('footer-1').'</h4>';
+                pawp_footer_nav('footer-1');
+                ?>
+            </div>
+            <div class="col">
+                <?php
+                echo '<h4>'.wp_get_nav_menu_name('footer-2').'</h4>';
+                pawp_footer_nav('footer-2');
+                ?>
+            </div>
+            <div class="col">
+                <?php
+                echo '<h4>'.wp_get_nav_menu_name('footer-3').'</h4>';
+                pawp_footer_nav('footer-3');
+                ?>
+            </div>
+            <div class="col">
+                <?php
+                echo '<h4>'.wp_get_nav_menu_name('footer-4').'</h4>';
+                pawp_footer_nav('footer-4');
+                ?>
+            </div>
+        </div>
+        <div class="copyright">
+            <hr>
+            <div class="flex-grid">
+                <div class="col payment">
+                    Payment methods:
+                </div>
+                <div class="col notice">
+                    &copy; Pawprint Family <?php echo date( 'Y' ); ?>
+                </div>
+            </div>
+        </div>
 
-    <footer class="copyright">
-        <?php dynamic_sidebar('footer-menu') ?>
-    </footer>
+	</footer><!-- #colophon -->
 
 </div><!-- #page -->
 
