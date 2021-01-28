@@ -1,12 +1,14 @@
 @import "../fonts/billy/stylesheet.css";
 @import url('https://fonts.googleapis.com/css?family=Tajawal:200,300,400,500,700,800,900&display=swap');
 
-@import "mixins/breakpoints";
+@import "foundation/styles";
+//@import "mixins/breakpoints";
 @import "variables";
 @import "includes/typeography";
 @import "includes/buttons";
 @import "includes/woocommerce";
 @import "includes/flex-grid";
+
 
 @import "partials/header";
 @import "partials/footer";

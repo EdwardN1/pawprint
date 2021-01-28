@@ -25,10 +25,13 @@ footer {
         padding: 0;
         list-style: none;
         display: block;
+        width: 100%;
 
         a, a:hover, a:visited, a:focus {
           color: #FFF;
           text-decoration: none;
+          padding: 0;
+          line-height: 1.5;
         }
       }
     }
