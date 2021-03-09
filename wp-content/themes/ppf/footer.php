@@ -118,26 +118,26 @@
 </div>
 
 	<footer>
-        <div class="flex-grid nav-menus">
-            <div class="col">
+        <div class="grid-x nav-menus">
+            <div class="cell auto">
                 <?php
                 echo '<h4>'.wp_get_nav_menu_name('footer-1').'</h4>';
                 pawp_footer_nav('footer-1');
                 ?>
             </div>
-            <div class="col">
+            <div class="cell auto">
                 <?php
                 echo '<h4>'.wp_get_nav_menu_name('footer-2').'</h4>';
                 pawp_footer_nav('footer-2');
                 ?>
             </div>
-            <div class="col">
+            <div class="cell auto">
                 <?php
                 echo '<h4>'.wp_get_nav_menu_name('footer-3').'</h4>';
                 pawp_footer_nav('footer-3');
                 ?>
             </div>
-            <div class="col">
+            <div class="cell auto">
                 <?php
                 echo '<h4>'.wp_get_nav_menu_name('footer-4').'</h4>';
                 pawp_footer_nav('footer-4');
@@ -146,11 +146,14 @@
         </div>
         <div class="copyright">
             <hr>
-            <div class="flex-grid">
-                <div class="col payment">
-                    Payment methods:
+            <div class="grid-x">
+                <div class="cell auto payment">
+                    <div class="grid-x">
+                        <div class="cell shrink" style="line-height: 50px;">Payment methods:&nbsp;&nbsp;</div>
+                        <div class="cell auto"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/cardpayments.png"></div>
+                    </div>
                 </div>
-                <div class="col notice">
+                <div class="cell text-right shrink notice" style="line-height: 50px;">
                     &copy; Pawprint Family <?php echo date( 'Y' ); ?>
                 </div>
             </div>
