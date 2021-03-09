@@ -96,6 +96,26 @@
             </div>
         </div>
     </div>
+<div class="grid-container footer-row-1">
+    <div class="block <?=(get_queried_object_id() == 7441 || get_queried_object_id() == 13175) ? 'badges-block' : ''?>">
+        <div class="content">
+            <?php
+            if(get_queried_object_id() != 7441 && get_queried_object_id() != 13175){
+                dynamic_sidebar('footer-trust-block');
+                ?>
+                <a href="/pawprint-trust/" class="pp-btn navy">Find out more</a>
+                <?php
+            }else{
+                dynamic_sidebar('footer-badges-block');
+                ?>
+                <a href="/product-category/badges/" class="pp-btn pink">Find out more</a>
+                <?php
+            }
+            ?>
+        </div>
+        <div class="map-block"></div>
+    </div>
+</div>
 
 	<footer>
         <div class="flex-grid nav-menus">

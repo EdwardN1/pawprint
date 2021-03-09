@@ -7,6 +7,7 @@ function ppf_scripts() {
     wp_enqueue_style('owl-carousel' , 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css');
     wp_enqueue_style('owl-carousel-theme' , 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css');
     wp_enqueue_style( 'ppf-style-css', get_template_directory_uri().'/assets/css/ppf.css', 'ppf-style', filemtime(get_template_directory_uri().'/assets/css/ppf.css'), 'all' );
+    wp_enqueue_style( 'foundation-style-css', get_template_directory_uri().'/assets/styles/style.css', 'ppf-style-css', filemtime(get_template_directory_uri().'/assets/styles/style.css'), 'all' );
     wp_enqueue_style( 'jamie-style-css', get_template_directory_uri().'/assets/css/jamie.css', 'ppf-style-css', filemtime(get_template_directory_uri().'/assets/css/jamie.css'), 'all' );
     wp_enqueue_style( 'ppf-style-updates', get_template_directory_uri().'/assets/css/updates.css' );
 

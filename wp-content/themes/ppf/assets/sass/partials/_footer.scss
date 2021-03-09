@@ -292,3 +292,9 @@ span.wpcf7-not-valid-tip {
 .grecaptcha-badge {
   display: none !important;
 }
+
+.footer-row-1   {
+  .block {
+    background-color: $trust;
+  }
+}
