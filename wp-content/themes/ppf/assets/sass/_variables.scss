@@ -9,3 +9,28 @@ $craft: #ff9d33;
 $games: #2096fb;
 $other: #9933ff;
 $food: #00aa4f;
+
+$white: #ffffff;
+
+.trust-background {
+  background-color: $trust;
+  color: $white;
+}
+
+.tales-background {
+  background-color: $tales;
+}
+
+.trails-background {
+  background-color: $trails;
+}
+
+.badges-background {
+  background-color: $badges;
+  color: $white;
+}
+
+.primary-background {
+  background-color: $primary-blue;
+  color: $white;
+}

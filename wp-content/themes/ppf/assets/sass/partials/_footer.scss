@@ -301,3 +301,48 @@ span.wpcf7-not-valid-tip {
     background-color: $trust;
   }
 }
+
+.testimonials {
+  h2 {
+    color: $primary-blue;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+  }
+  p {
+    margin: 0px;
+    font-size: 14px;
+    color: $primary-blue;
+
+    &.content {
+      position: relative;
+      padding-left: 30px;
+      padding-right: 30px;
+
+      &:before,
+      &:after {
+        width: 20px;
+        height: 17px;
+        background: url("https://pawprintfamily.com/wp-content/uploads/2020/02/quote-left.png");
+        content: ' ';
+        display: block;
+        background-size: cover !important;
+        position: absolute;
+      }
+
+      &:before {
+        top: 0px;
+        left: 0px;
+      }
+
+      &:after {
+        bottom: 0px;
+        right: 0px;
+        transform: rotate(-180deg);
+      }
+
+    }
+  }
+}
