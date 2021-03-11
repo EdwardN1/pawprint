@@ -301,48 +301,110 @@ span.wpcf7-not-valid-tip {
     background-color: $trust;
   }
 }
+.footer-2 {
+  .testimonials {
+    padding-left: 10px;
+    h2 {
+      color: $primary-blue;
+      background-size: contain;
+      background-repeat: no-repeat;
+      padding-top: 20px;
+      padding-right: 20px;
+      padding-bottom: 40px;
+      font-family: 'billy-regular';
+      font-size: 30px;
+      line-height: 1em;
+    }
 
-.testimonials {
-  h2 {
-    color: $primary-blue;
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-bottom: 40px;
+    p {
+      margin: 0px;
+      font-size: 14px;
+      color: $primary-blue;
+
+      &.content {
+        position: relative;
+        padding-left: 30px;
+        padding-right: 30px;
+
+        &:before,
+        &:after {
+          width: 20px;
+          height: 17px;
+          background: url("https://pawprintfamily.com/wp-content/uploads/2020/02/quote-left.png");
+          content: ' ';
+          display: block;
+          background-size: cover !important;
+          position: absolute;
+        }
+
+        &:before {
+          top: 0px;
+          left: 0px;
+        }
+
+        &:after {
+          bottom: 0px;
+          right: 0px;
+          transform: rotate(-180deg);
+        }
+
+      }
+    }
   }
-  p {
-    margin: 0px;
-    font-size: 14px;
-    color: $primary-blue;
-
-    &.content {
-      position: relative;
-      padding-left: 30px;
-      padding-right: 30px;
-
-      &:before,
-      &:after {
-        width: 20px;
-        height: 17px;
-        background: url("https://pawprintfamily.com/wp-content/uploads/2020/02/quote-left.png");
-        content: ' ';
-        display: block;
-        background-size: cover !important;
-        position: absolute;
+  .subscribe-form {
+    padding-right: 10px;
+    h3 {
+      color: $primary-blue;
+      background-size: contain;
+      background-repeat: no-repeat;
+      font-family: 'billy-regular';
+      font-size: 30px;
+      line-height: 1em;
+      padding-top: 20px;
+    }
+    p {
+      color: $primary-blue;
+      font-size: 14px;
+      padding-top: 10px;
+      a {
+        text-decoration: underline;
       }
-
-      &:before {
-        top: 0px;
-        left: 0px;
+    }
+    input[type="email"] {
+      margin: 0;
+      width: 100%;
+      padding: 9.5px 12.5px !important;
+      line-height: 1.6;
+      font-size: 14px;
+      height: auto;
+      display: inline-block;
+      &:first-line {
+        display: inline-block;
       }
-
-      &:after {
-        bottom: 0px;
-        right: 0px;
-        transform: rotate(-180deg);
+    }
+    input[type="submit"] {
+      padding: 9px 35px !important;
+      display: block;
+      clear: both;
+      text-decoration: none;
+      text-align: center;
+      font-family: "billy-regular";
+      box-sizing: border-box;
+      border: 0px !important;
+      border-radius: 0px !important;
+      font-size: 1rem !important;
+      cursor: pointer !important;
+      background-color: $primary-blue;
+      color: $white;
+      line-height: 1.6;
+      font-size: 16px;
+      display: inline-block;
+      &:first-line {
+        display: inline-block;
       }
-
+    }
+    .ajax-loader {
+      display: none;
     }
   }
 }

@@ -98,12 +98,6 @@
 
                 <div class="shop-actions desktop">
                     <ul>
-                        <!--<li>
-                            <a href="<? /*= get_site_url() */ ?>/contact-us/">
-                                <img src="<? /*= get_site_url() */ ?>/wp-content/uploads/2020/02/Contact-1.png" alt="">
-                                Contact
-                            </a>
-                        </li>-->
 
                         <li>
 
@@ -118,7 +112,7 @@
 
                                     </a>
                                     <span style="color: #ffffff; padding-top: 4px; display: block;"> Hello, <?= $userdata->first_name ?> </br>
-                                        <!--(not you? <a href="<?/*= wc_logout_url() */?>">Log Out</a>)--></span></p>
+                                        <!--(not you? <a href="<? /*= wc_logout_url() */ ?>">Log Out</a>)--></span></p>
                             <?php } else {
                                 ?>
                                 <p style="text-align: center;">
@@ -131,19 +125,12 @@
                             } ?>
                         </li>
 
-                        <!--<li>
-                            <a href="<?/*= get_site_url() */?>/cart/">
-                                <img src="<?/*= get_template_directory_uri() */?>/assets/img/SVG/Basket.svg" alt=""
-                                     class="basket-icon">
-                                Basket
-                            </a>
-                        </li>-->
 
                         <li>
                             <a href="<?php echo wc_get_cart_url(); ?>" class="cart-customlocation">
                                 <img src="<?= get_template_directory_uri() ?>/assets/img/SVG/Basket.svg" alt=""
                                      class="basket-icon"> <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
-                                 <?php echo WC()->cart->get_cart_total(); ?></a>
+                                <?php echo WC()->cart->get_cart_total(); ?></a>
                             </a>
                         </li>
 
@@ -151,77 +138,34 @@
 
                 </div>
                 <div class="shop-actions mobile">
-                    <div class="flex-grid mobile-burger-menu">
-                        <div class="col mobile-burger-menu">
+                    <div class="grid-x mobile-burger-menu">
+                        <div class="cell shrink mobile-burger-menu">
                             <a href="javascript:void(0);" class="mobile_menu_toggle">
                                 <span></span>
                             </a>
                         </div>
-                        <div class="col mobile-logo">
-                            <?php
-                            the_custom_logo();
-                            ?>
+                        <div class="cell shrink mobile-logo">
+                            <div class="logo-container" style="max-width: 70px;">
+                                <?php
+                                the_custom_logo();
+                                ?>
+                            </div>
                         </div>
-                        <div class="col">
+                        <div class="cell auto">
                             <div class="search-container mobile">
                                 <div class="search-wrapper">
                                     <?php echo get_search_form() ?>
                                 </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <a href="<?php echo wc_get_cart_url(); ?>">
+                        <div class="cell shrink">
+                            <a href="<?php echo wc_get_cart_url(); ?>" style="max-width: 40px;">
                                 <img src="<?= get_template_directory_uri() ?>/assets/img/SVG/Basket.svg" alt=""
-                                     class="basket-icon"> </a>
+                                     class="basket-icon" style="width: 30px"> </a>
                             </a>
                         </div>
                     </div>
-                    <!--<ul>
-                        <li class="mobile-burger-menu">
-                            <a href="javascript:void(0);" class="mobile_menu_toggle">
-                                <span></span>
-                            </a>
-                        </li>
-                        <li class="mobile-logo">
-                                <?php
-/*                                the_custom_logo();
-                                */?>
 
-                        </li>-->
-                        <!--<li>
-                            <a href="<?/*= get_site_url() */?>/contact-us/">
-                                <img src="<?/*= get_site_url() */?>/wp-content/uploads/2020/02/Contact-1.png" alt="">
-                            </a>
-                        </li>-->
-                        <!--<li>
-                            <a href="<?/*= get_site_url() */?>/cart/">
-                                <img src="<?/*= get_template_directory_uri() */?>/assets/img/SVG/Basket.svg" alt=""
-                                     class="basket-icon">
-                            </a>
-                        </li>-->
-                       <!-- <li>
-                            <div class="search-container mobile">
-                                <div class="search-wrapper">
-                                    <?php /*echo get_search_form() */?>
-                                </div>
-                            </div>
-                        </li>
-                        <li style="float:right;">
-                            <a href="<?php /*echo wc_get_cart_url(); */?>">
-                                <img src="<?/*= get_template_directory_uri() */?>/assets/img/SVG/Basket.svg" alt=""
-                                     class="basket-icon"> </a>
-                            </a>-->
-                            <!--<a href="<?php /*echo wc_get_cart_url(); */?>" class="cart-customlocation">
-                                <img src="<?/*= get_template_directory_uri() */?>/assets/img/SVG/Basket.svg" alt=""
-                                     class="basket-icon"> <span class="cart-count"><?php /*echo WC()->cart->get_cart_contents_count(); */?></span>
-                                <?php /*echo WC()->cart->get_cart_total(); */?></a>
-                            </a>-->
-                       /
-                    <!--<div class="search-container mobile">
-                        <div class="search-wrapper">
-                            <?php /*echo get_search_form() */?>
-                        </div>
-                    </div>-->
                 </div>
 
             </div>
