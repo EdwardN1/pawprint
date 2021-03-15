@@ -501,7 +501,7 @@
         $('body .woofc-action-left a').html('Continue Shopping').attr('href' , '').addClass('woofc-continue-url');
     });
 
-    console.log($('header#masthead').outerHeight());
+    //console.log($('header#masthead').outerHeight());
 
     $('.menu-black-block').height($('body').height() - $('header#masthead').outerHeight() - 32);
     $('.menu-black-block').css('top' , $('header#masthead').outerHeight()+32);

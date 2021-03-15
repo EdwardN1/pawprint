@@ -440,8 +440,10 @@ function ppf_breadcrumbs_product_categories(){
                 ele.height(ele.height());
             });
 
-            var orderStaus = jQuery('body .woocommerce-orders-table__cell-order-status').html().split('<br>');
-            jQuery('body .woocommerce-orders-table__cell-order-status').html(orderStaus[0]);
+            if(jQuery('body .woocommerce-orders-table__cell-order-status').length) {
+                var orderStaus = jQuery('body .woocommerce-orders-table__cell-order-status').html().split('<br>');
+                jQuery('body .woocommerce-orders-table__cell-order-status').html(orderStaus[0]);
+            }
 
         </script>
 

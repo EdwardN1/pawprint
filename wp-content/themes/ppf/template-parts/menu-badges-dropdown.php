@@ -27,7 +27,8 @@
             <?php
                 if($badges->have_posts()){
                     while ($badges->have_posts()){ $badges->the_post();
-                        echo '<a href="'.get_the_permalink($badges->post->ID).'"><img src="'.get_the_post_thumbnail_url($badges->post->ID).'" alt=""></a>';
+                        //echo '<a href="'.get_the_permalink($badges->post->ID).'"><img src="'.get_the_post_thumbnail_url($badges->post->ID).'" alt=""></a>';
+                        echo '<a href="'.get_the_permalink($badges->post->ID).'">'.get_the_post_thumbnail($badges->post->ID, 'thumbnail').'</a>';
                     }
                 }
             ?>

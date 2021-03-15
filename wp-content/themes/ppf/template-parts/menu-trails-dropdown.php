@@ -26,7 +26,8 @@ $trails = new WP_Query(
             <?php
             if($trails->have_posts()){
                 while ($trails->have_posts()){ $trails->the_post();
-                    echo '<a href="'.get_the_permalink($trails->post->ID).'"><img src="'.get_the_post_thumbnail_url($trails->post->ID).'" alt=""></a>';
+                    //echo '<a href="'.get_the_permalink($trails->post->ID).'"><img src="'.get_the_post_thumbnail_url($trails->post->ID).'" alt=""></a>';
+                    echo '<a href="'.get_the_permalink($trails->post->ID).'"><img src="'.get_the_post_thumbnail($trails->post->ID,'thumbnail').'</a>';
                 }
             }
             ?>

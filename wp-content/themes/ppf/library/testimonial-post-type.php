@@ -1,7 +1,7 @@
 <?php
 
 add_action( 'init' , 'add_testimonials_post_type' );
-add_action( 'acf/init', 'red_ppb_testimonials_block_init' );
+//add_action( 'acf/init', 'red_ppb_testimonials_block_init' );
 
 function add_testimonials_post_type()
 {

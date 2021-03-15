@@ -27,7 +27,8 @@ $tales = new WP_Query(
             <?php
                 if($tales->have_posts()){
                     while ($tales->have_posts()){ $tales->the_post();
-                        echo '<a href="'.get_the_permalink($tales->post->ID).'"><img src="'.get_the_post_thumbnail_url($tales->post->ID).'" alt=""></a>';
+                        //echo '<a href="'.get_the_permalink($tales->post->ID).'"><img src="'.get_the_post_thumbnail_url($tales->post->ID).'" alt=""></a>';
+                        echo '<a href="'.get_the_permalink($tales->post->ID).'"><img src="'.get_the_post_thumbnail($tales->post->ID, 'thumbnail').'</a>';
                     }
                 }
             ?>
