@@ -25,10 +25,10 @@
             if (get_queried_object_id() != 7441 && get_queried_object_id() != 13175) {
                 ?>
                 <div class="grid-x">
-                    <div class="cell shrink pad-all-10">
+                    <div class="cell large-shrink medium-12 small-12 pad-all-10">
                         <img class="wp-image-5396 aligncenter" src="https://pawprintfamily.com/wp-content/uploads/2020/02/Pawprint-Trust-300x129.png" alt="" width="300" height="129"/>
                     </div>
-                    <div class="cell auto pad-all-10">
+                    <div class="cell large-auto pad-all-10">
                         <p>
                             Do you have a project that needs some extra funds? A young person planning an international trip but stuck with their fundraising? Then we have the help that you need!
                         </p>
@@ -36,7 +36,7 @@
                             Do you have a project that needs some extra funds? A young person planning an international trip but stuck with their fundraising? Then we have the help that you need!
                         </p>
                     </div>
-                    <div class="cell auto pad-all-10">
+                    <div class="cell large-auto medium-12 small-12 pad-all-10">
                         <p>
                             Do you have a project that needs some extra funds? A young person planning an international trip but stuck with their fundraising? Then we have the help that you need!
                         </p>
@@ -52,10 +52,10 @@
             } else {
                 ?>
                 <div class="grid-x">
-                    <div class="cell shrink pad-all-10">
+                    <div class="cell large-shrink medium-shrink small-12 pad-all-10">
                         <img class="wp-image-5396 aligncenter" src="https://pawprintfamily.com/wp-content/uploads/2020/03/Family-Brands-Image-1.png" alt="" width="506" height="170"/>
                     </div>
-                    <div class="cell auto pad-all-10" style="padding-top: 20px; line-height:1.5;">
+                    <div class="cell large-auto medium-auto small-12 pad-all-10" style="padding-top: 20px; line-height:1.5;">
                         <p>
                             A percentage of profits from each sale goes into the Pawprint Trust. Find out more about the brands by clicking below.
                             <a href="/product-category/badges/" class="pp-btn pink">Find out more</a>
@@ -78,12 +78,12 @@
         </div>
         <div class="cell large-6 medium-12 small-12 pad-all-10 testimonials">
             <div class="grid-x">
-                <div class="cell shrink" style="max-width: 200px;">
+                <div class="cell large-shrink medium-shrink small-12" style="max-width: 200px;">
                     <h2 style="background-image: url(/wp-content/uploads/2020/02/pawprint-icon.png);">
                         What our<br/><?= (get_queried_object_id() != 7441) ? 'customers' : 'recipients' ?> say...
                     </h2>
                 </div>
-                <div class="cell auto pad-all-10">
+                <div class="cell large-auto medium-auto small-12  pad-all-10">
                     <?php
                     if (get_queried_object_id() != 7441) {
                         $testimonials = new WP_Query(
@@ -139,7 +139,7 @@
 </div>
 
 <footer>
-    <div class="grid-x nav-menus">
+    <div class="grid-x nav-menus desktop">
         <div class="cell auto">
             <?php
             echo '<h4>' . wp_get_nav_menu_name('footer-1') . '</h4>';
@@ -164,6 +164,34 @@
             pawp_footer_nav('footer-4');
             ?>
         </div>
+    </div>
+    <div class="nav-menus mobile">
+        <ul class="accordion" data-accordion>
+            <li class="accordion-item is-active" data-accordion-item>
+                <a href="#" class="accordion-title"><h4><?php echo wp_get_nav_menu_name('footer-1'); ?></h4></a>
+                <div class="accordion-content" data-tab-content>
+                     <?php echo pawp_footer_nav('footer-1');?>
+                </div>
+            </li>
+            <li class="accordion-item" data-accordion-item>
+                <a href="#" class="accordion-title"><h4><?php echo wp_get_nav_menu_name('footer-2');?></h4></a>
+                <div class="accordion-content" data-tab-content>
+                    <?php echo pawp_footer_nav('footer-2');?>
+                </div>
+            </li>
+            <li class="accordion-item" data-accordion-item>
+                <a href="#" class="accordion-title"><h4><?php echo wp_get_nav_menu_name('footer-3');?></h4></a>
+                <div class="accordion-content" data-tab-content>
+                    <?php echo pawp_footer_nav('footer-3');?>
+                </div>
+            </li>
+            <li class="accordion-item" data-accordion-item>
+                <a href="#" class="accordion-title"><h4><?php echo wp_get_nav_menu_name('footer-4');?></h4></a>
+                <div class="accordion-content" data-tab-content>
+                    <?php echo pawp_footer_nav('footer-4');?>
+                </div>
+            </li>
+        </ul>
     </div>
     <div class="copyright">
         <hr>

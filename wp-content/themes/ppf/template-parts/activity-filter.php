@@ -139,11 +139,16 @@
                     $unchecked_image_url = wp_get_attachment_url($unchecked_image_id);
                     $checked_image_url = wp_get_attachment_url($checked_image_id);
 
-                    if(in_array($term->slug , $selected_cost)){
-                        echo '<label for="ppf_collection_'.$term->slug.'"><input checked value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="costs[]"><span><img src="'.$checked_image_url.'" data-unchecked="'.$unchecked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
-                    }else{
+                    if(is_array($selected_cost)) {
+                        if(in_array($term->slug , $selected_cost)){
+                            echo '<label for="ppf_collection_'.$term->slug.'"><input checked value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="costs[]"><span><img src="'.$checked_image_url.'" data-unchecked="'.$unchecked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
+                        }else{
+                            echo '<label for="ppf_collection_'.$term->slug.'"><input value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="costs[]"><span><img src="'.$unchecked_image_url.'" data-checked="'.$checked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
+                        }
+                    } else {
                         echo '<label for="ppf_collection_'.$term->slug.'"><input value="'.$term->slug.'" id="ppf_collection_'.$term->slug.'" type="checkbox" name="costs[]"><span><img src="'.$unchecked_image_url.'" data-checked="'.$checked_image_url.'" alt=""></span><p>'.$term->name.'</p></label>';
                     }
+
                 }
                 ?>
             </div>

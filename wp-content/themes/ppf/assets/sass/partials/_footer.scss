@@ -5,9 +5,14 @@
 }
 
 footer {
-
+  h4 {
+    color: $white;
+  }
   background: $primary-blue;
   .nav-menus {
+    &.mobile {
+      display: none;
+    }
     padding: 20px 0px 20px;
     color: #FFF;
     text-align: left;
@@ -302,7 +307,7 @@ span.wpcf7-not-valid-tip {
   }
 }
 .footer-2 {
-  .testimonials {
+    .testimonials {
     padding-left: 10px;
     h2 {
       color: $primary-blue;
@@ -315,7 +320,6 @@ span.wpcf7-not-valid-tip {
       font-size: 30px;
       line-height: 1em;
     }
-
     p {
       margin: 0px;
       font-size: 14px;

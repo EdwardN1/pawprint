@@ -53,4 +53,31 @@
     height: auto;
   }
 
+  footer {
+    .nav-menus.desktop {
+      display: none;
+    }
+    .nav-menus.mobile {
+      display: block;
+      .accordion {
+        background: $primary-blue;
+      }
+      .accordion-content {
+        background: $primary-blue;
+        border: none;
+      }
+      .accordion-title {
+        border: none;
+      }
+      .accordion-title:hover, .accordion-title:focus {
+        background-color: $primary-blue;
+      }
+      li.accordion-item {
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
+        padding-left: 0.4em;
+      }
+    }
+  }
+
 }
