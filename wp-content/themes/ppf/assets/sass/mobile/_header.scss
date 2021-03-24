@@ -1,9 +1,4 @@
-@media only screen and (max-width: 625px) {
-
-  header#masthead {
-    position: relative;
-    height: auto;
-  }
+@media only screen and (max-width: 425px) {
 
   h1{
     font-size: 1.2em !important;
@@ -14,7 +9,7 @@
   }
 
   .header-top-section{
-    //padding: 0 15px;
+    padding: 0 15px;
   }
 
   body.home header#masthead{
@@ -23,10 +18,6 @@
 
   header#masthead .header-top-section .site-branding{
     width: 150px;
-    position: relative;
-    &.desktop {
-      display: none;
-    }
 
     *{
       width: 100%;
@@ -47,7 +38,7 @@
     transition: top ease-in-out 500ms;
 
     &.moved{
-      top: 74px;
+      top: 128px;
     }
 
     .textwidget{
@@ -122,59 +113,13 @@
 
   header#masthead .header-top-section .search-container{
     display: none;
-    &.mobile {
-      display: block;
-      width: 100%;
-      input[type=search] {
-        height: 38px;
-      }
-    }
   }
 
   header#masthead .header-top-section .shop-actions {
     display: inline-block;
     vertical-align: middle;
-    /*width: calc(100% - 155px);*/
-    width: 100%;
-    //max-width: 425px;
-    //text-align: right;
-    padding-top: 16px;
-    height: 75px;
-    > ul, > .flex-grid {
-      width: 100%;
-      li {
-        max-width: 150px;
-        @include breakpoint(415px) {
-          max-width: none;
-        }
-      }
-      .mobile-burger-menu {
-        margin: 0;
-        padding-top: 5px;
-      }
-      .mobile-logo {
-        //width: calc(100% - 120px);
-        img {
-          height: 38px;
-          margin-left: 0;
-          width: auto;
-        }
-      }
-      .basket-icon {
-        height: 30px;
-        width: auto;
-      }
-      .search-container {
-        padding-left: 5px;
-        padding-right: 5px;
-        input[type=search] {
-          width: 29vw;
-          @include breakpoint(374px) {
-            width: 39vw;
-          }
-        }
-      }
-    }
+    width: calc(100% - 155px);
+    text-align: right;
   }
 
   header#masthead .header-top-section .shop-actions ul{
@@ -213,7 +158,7 @@
       span{
         width: 20px;
         height: 3px;
-        background: #ffffff;
+        background: $badges;
         position: absolute;
         top: calc(50% - 1.5px);
         left: 0px;
@@ -225,7 +170,7 @@
           display: block;
           clear: both;
           content: ' ';
-          background: #ffffff;
+          background: $badges;
           position: absolute;
           left: 0px;
         }

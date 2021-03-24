@@ -21,20 +21,20 @@
                 case 'Awaiting Payment':
                 case 'Processing':
 
-                    echo '<img src="/wp-content/uploads/2020/03/order-orange-dot.png" style="width: 14px !important; margin-right: 2px !important; display: inline-block !important; vertical-align: middle !important;">';
+                    echo '<img src="https://pawprintfamily.com/wp-content/uploads/2020/03/order-orange-dot.png" style="width: 14px !important; margin-right: 2px !important; display: inline-block !important; vertical-align: middle !important;">';
 
                     break;
 
                 case 'Refunded':
                 case 'Cancelled':
 
-                    echo '<img src="/wp-content/uploads/2020/03/order-red-dot.png" style="width: 14px !important; margin-right: 2px !important; display: inline-block !important; vertical-align: middle !important;">';
+                    echo '<img src="https://pawprintfamily.com/wp-content/uploads/2020/03/order-red-dot.png" style="width: 14px !important; margin-right: 2px !important; display: inline-block !important; vertical-align: middle !important;">';
 
                     break;
 
                 case 'Complete':
 
-                    echo '<img src="/wp-content/uploads/2020/03/order-red-dot.png" style="width: 14px !important; margin-right: 2px !important; display: inline-block !important; vertical-align: middle !important;">';
+                    echo '<img src="https://pawprintfamily.com/wp-content/uploads/2020/03/order-red-dot.png" style="width: 14px !important; margin-right: 2px !important; display: inline-block !important; vertical-align: middle !important;">';
 
                     break;
 

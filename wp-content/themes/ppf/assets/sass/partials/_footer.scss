@@ -1,99 +1,106 @@
-.footer-top-part {
-  max-width: 1396px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
+footer{
 
-footer {
-  h4 {
-    color: $white;
-  }
-  background: $primary-blue;
-  .nav-menus {
-    &.mobile {
-      display: none;
-    }
-    padding: 20px 0px 20px;
-    color: #FFF;
-    text-align: left;
-    max-width: 1396px;
-    margin-left: auto;
-    margin-right: auto;
-
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      li {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: block;
-        width: 100%;
-
-        a, a:hover, a:visited, a:focus {
-          color: #FFF;
-          text-decoration: none;
-          padding: 0;
-          line-height: 1.5;
-        }
-      }
-    }
-  }
-
-  .copyright {
-    padding: 20px 0px 20px;
+  &.site-footer{
+    padding: 40px 0px;
+    background: $badges;
     text-align: center;
-    max-width: 1396px;
-    margin-left: auto;
-    margin-right: auto;
-    color: #FFF;
-    text-align: left;
-    max-width: 1396px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 12px;
+
+    h2{
+      color: #FFF;
+      display: block;
+      clear: both;
+    }
+
+    img{
+      width: 30px;
+      height: auto;
+      margin: 10px 5px 0px;
+    }
+
+    p{
+      margin: 0px;
+    }
+
+    .widget{
+      margin: 0px;
+    }
+
+  }
+
+  &.copyright{
+    padding: 20px 0px 20px;
+    background: $primary-blue;
+    text-align: center;
+
+    .widget{ margin: 0px; padding: 0px; }
+
+    p{
+      color: #FFF;
+      text-decoration: none !important;
+      font-size: 12px;
+      line-height: 1em;
+      margin: 5px 0 0;
+    }
+
+    ul{
+      margin: 0px;
+      padding: 0px;
+      display: inline-block;
+
+      li{
+        display: inline;
+        margin: 0 7.5px;
+        padding: 0px;
+
+        a{
+          color: #FFF;
+          text-decoration: none !important;
+          font-size: 12px;
+          line-height: 1em;
+        }
+
+      }
+
+    }
+
   }
 
 }
 
-
-
-.footer-top-part {
-  margin: 20px auto 0 auto;
+.footer-top-part{
+  margin: 20px 0 0 0;
   display: block;
   clear: both;
 
-  &:after {
+  &:after{
     display: block;
     clear: both;
     content: ' ';
   }
 
-  .left {
+  .left{
     width: calc(100% - 550px);
     float: left;
 
-    .block {
+    .block{
       width: 100%;
       height: 300px;
 
-      &:first-of-type {
+      &:first-of-type{
         background: $trust;
         height: 350px;
 
-        &.badges-block {
+        &.badges-block{
           background: $primary-blue;
         }
 
-        &:after {
+        &:after{
           display: block;
           clear: both;
           content: ' ';
         }
 
-        .map-block {
+        .map-block{
           width: 250px;
           height: 100%;
           display: block;
@@ -102,20 +109,20 @@ footer {
           background-size: cover !important;
         }
 
-        .content {
+        .content{
           padding: 20px;
           width: calc(100% - 250px);
           height: 100%;
           display: block;
           float: left;
 
-          p {
+          p{
             color: #FFF;
             margin-bottom: 30px;
             margin-top: 0px !important;
           }
 
-          .widget {
+          .widget{
             margin: 0px;
             min-height: 243px;
           }
@@ -124,29 +131,29 @@ footer {
 
       }
 
-      &:last-of-type {
+      &:last-of-type{
         padding: 10px 10px 10px;
         height: 250px;
 
-        &:after {
+        &:after{
           display: block;
           clear: both;
           content: ' ';
         }
 
-        .left {
+        .left{
           width: 200px;
           float: left;
           position: relative;
           padding: 20px 0 0 0;
 
-          h2 {
+          h2{
             color: $primary-blue;
             position: relative;
             z-index: 100;
           }
 
-          img {
+          img{
             width: 80%;
             height: auto;
             display: block;
@@ -158,23 +165,23 @@ footer {
 
         }
 
-        .right {
+        .right{
           width: calc(100% - 230px);
           float: right;
           padding: 10px;
 
-          p {
+          p{
             margin: 0px;
             font-size: 14px;
             color: $primary-blue;
 
-            &.content {
+            &.content{
               position: relative;
               padding-left: 30px;
               padding-right: 30px;
 
               &:before,
-              &:after {
+              &:after{
                 width: 20px;
                 height: 17px;
                 background: url("https://pawprintfamily.com/wp-content/uploads/2020/02/quote-left.png");
@@ -184,12 +191,12 @@ footer {
                 position: absolute;
               }
 
-              &:before {
+              &:before{
                 top: 0px;
                 left: 0px;
               }
 
-              &:after {
+              &:after{
                 bottom: 0px;
                 right: 0px;
                 transform: rotate(-180deg);
@@ -201,7 +208,7 @@ footer {
 
         }
 
-        hr {
+        hr{
           margin: 10px 0px;
           background-color: $primary-blue !important;
         }
@@ -212,16 +219,16 @@ footer {
 
   }
 
-  .right {
+  .right{
     width: 550px;
     float: right;
 
-    .block {
+    .block{
       height: 600px;
       background: url('https://pawprintfamily.com/wp-content/uploads/2020/02/too-cool.jpg') 50% 50% no-repeat;
       background-size: cover !important;
 
-      div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+      div.wpcf7-validation-errors, div.wpcf7-acceptance-missing{
         margin-top: -50px;
         color: yellow;
         width: 80%;
@@ -229,7 +236,7 @@ footer {
         font-size: 12px;
       }
 
-      .subscribe-form {
+      .subscribe-form{
         padding: 40px 80px;
         margin: 0px;
         padding-top: 190px;
@@ -237,17 +244,17 @@ footer {
         clear: both;
         text-align: center;
 
-        h3 {
+        h3{
           margin: 0px;
           font-size: 30px;
           color: #FFF;
         }
 
-        p {
+        p{
           color: #FFF;
         }
 
-        input {
+        input{
           width: 100%;
           border: 0px;
           padding: 0 10px;
@@ -255,7 +262,7 @@ footer {
           height: 42px !important;
         }
 
-        input[type="submit"] {
+        input[type="submit"]{
           width: 100%;
           display: block;
           clear: both;
@@ -268,7 +275,7 @@ footer {
           border: 0px;
           box-sizing: border-box;
 
-          &:hover {
+          &:hover{
             text-decoration: underline !important;
             cursor: pointer !important;
           }
@@ -283,7 +290,7 @@ footer {
 
 }
 
-span.wpcf7-not-valid-tip {
+span.wpcf7-not-valid-tip{
   width: 100%;
   position: absolute;
   top: 100%;
@@ -292,123 +299,11 @@ span.wpcf7-not-valid-tip {
   color: yellow;
 }
 
-.wpcf7-form-control-wrap {
+.wpcf7-form-control-wrap{
   display: block;
   clear: both;
 }
 
-.grecaptcha-badge {
+.grecaptcha-badge{
   display: none !important;
-}
-
-.footer-row-1   {
-  .block {
-    background-color: $trust;
-  }
-}
-.footer-2 {
-    .testimonials {
-    padding-left: 10px;
-    h2 {
-      color: $primary-blue;
-      background-size: contain;
-      background-repeat: no-repeat;
-      padding-top: 20px;
-      padding-right: 20px;
-      padding-bottom: 40px;
-      font-family: 'billy-regular';
-      font-size: 30px;
-      line-height: 1em;
-    }
-    p {
-      margin: 0px;
-      font-size: 14px;
-      color: $primary-blue;
-
-      &.content {
-        position: relative;
-        padding-left: 30px;
-        padding-right: 30px;
-
-        &:before,
-        &:after {
-          width: 20px;
-          height: 17px;
-          background: url("https://pawprintfamily.com/wp-content/uploads/2020/02/quote-left.png");
-          content: ' ';
-          display: block;
-          background-size: cover !important;
-          position: absolute;
-        }
-
-        &:before {
-          top: 0px;
-          left: 0px;
-        }
-
-        &:after {
-          bottom: 0px;
-          right: 0px;
-          transform: rotate(-180deg);
-        }
-
-      }
-    }
-  }
-  .subscribe-form {
-    padding-right: 10px;
-    h3 {
-      color: $primary-blue;
-      background-size: contain;
-      background-repeat: no-repeat;
-      font-family: 'billy-regular';
-      font-size: 30px;
-      line-height: 1em;
-      padding-top: 20px;
-    }
-    p {
-      color: $primary-blue;
-      font-size: 14px;
-      padding-top: 10px;
-      a {
-        text-decoration: underline;
-      }
-    }
-    input[type="email"] {
-      margin: 0;
-      width: 100%;
-      padding: 9.5px 12.5px !important;
-      line-height: 1.6;
-      font-size: 14px;
-      height: auto;
-      display: inline-block;
-      &:first-line {
-        display: inline-block;
-      }
-    }
-    input[type="submit"] {
-      padding: 9px 35px !important;
-      display: block;
-      clear: both;
-      text-decoration: none;
-      text-align: center;
-      font-family: "billy-regular";
-      box-sizing: border-box;
-      border: 0px !important;
-      border-radius: 0px !important;
-      font-size: 1rem !important;
-      cursor: pointer !important;
-      background-color: $primary-blue;
-      color: $white;
-      line-height: 1.6;
-      font-size: 16px;
-      display: inline-block;
-      &:first-line {
-        display: inline-block;
-      }
-    }
-    .ajax-loader {
-      display: none;
-    }
-  }
 }

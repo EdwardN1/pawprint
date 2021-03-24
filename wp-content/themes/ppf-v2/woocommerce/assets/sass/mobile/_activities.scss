@@ -1,0 +1,28 @@
+@media only screen and (max-width: 425px) {
+
+  ul.activities_listings li{
+    width: calc(50% - 0.5em) !important;
+    margin: 0 0.25em 0.5em !important;
+  }
+
+  ul.activities_listings{
+    margin: 0 -0.25em;
+  }
+
+  ul.activities_listings li .actions a{
+    font-size: 12px;
+  }
+
+  ul.activities_listings li .image-container .actions span{
+    font-size: 12px !important;
+  }
+
+  ul.activities_listings li h2{
+    font-size: 16px !important;
+  }
+
+  .activity-add-to-pack-popup .inner{
+    max-width: 350px;
+  }
+
+}

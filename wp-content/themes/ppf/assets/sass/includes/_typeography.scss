@@ -1,68 +1,61 @@
-body {
-  h2 {
-    font-size: 30px !important;
-    font-family: 'billy-regular';
+h2{
+  font-size: 30px !important;
+  font-family: 'billy-regular';
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  clear: both;
+  line-height: 1em;
+  color: $primary-blue;
+}
+
+h1{
+  font-family: 'billy-regular';
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  clear: both;
+  line-height: 1em;
+  color: $primary-blue;
+}
+
+h3{
+  font-family: 'billy-regular';
+  color: $primary-blue;
+}
+
+ul,li,ol,p,strong,label{
+  font-family: 'Tajawal', sans-serif;
+}
+
+p{
+  font-size: 16px;
+  line-height: 1.2em;
+  font-family: 'Tajawal', sans-serif;
+  font-weight: 300;
+
+  a{
+    color: inherit !important;
+  }
+
+}
+
+.content-area{
+
+  ul,
+  ol{
+
+    padding-left: 30px;
     margin: 0px;
-    padding: 0px;
-    display: block;
-    clear: both;
-    line-height: 1em;
-    color: $primary-blue;
-  }
 
-  h1 {
-    font-family: 'billy-regular';
-    margin: 0px;
-    padding: 0px;
-    display: block;
-    clear: both;
-    line-height: 1em;
-    color: $primary-blue;
-  }
-
-  h3 {
-    font-family: 'billy-regular';
-    color: $primary-blue;
-  }
-
-  ul, li, ol, p, strong, label {
-    font-family: 'Tajawal', sans-serif;
-  }
-
-  p {
-    font-size: 16px;
-    line-height: 1.2em;
-    font-family: 'Tajawal', sans-serif;
-    font-weight: 300;
-
-    a {
-      color: inherit !important;
+    li{
+      font-size: 16px;
+      line-height: 1.2em;
+      font-family: 'Tajawal', sans-serif;
+      font-weight: 300;
+      margin-bottom: 5px;
     }
 
   }
 
-  a {
-    font-family: 'Tajawal', sans-serif;
-    font-weight: 300;
-  }
-
-  .content-area {
-
-    ul,
-    ol {
-
-      padding-left: 30px;
-      margin: 0px;
-
-      li {
-        font-size: 16px;
-        line-height: 1.2em;
-        font-family: 'Tajawal', sans-serif;
-        font-weight: 300;
-        margin-bottom: 5px;
-      }
-
-    }
-
-  }
 }

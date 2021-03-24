@@ -41,7 +41,7 @@
 
             <a href="<?=get_site_url().'/print-pack?activity_id='.get_queried_object_id()?>" class="pp-btn teal">Download Activity Card</a>
 
-            <a href="/product-category/free-resources/?product_category=activity-resources" class="pp-btn yellow">View Activity Resources</a>
+            <a href="https://pawprintfamily.com/product-category/free-resources/?product_category=activity-resources" class="pp-btn yellow">View Activity Resources</a>
 
         </div>
     </div>
