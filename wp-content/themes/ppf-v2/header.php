@@ -187,7 +187,7 @@
                     <li>
                         <a href="<?= get_site_url() ?>/pawprint-trust/">Pawprint Trust</a>
                     </li>
-                    <li><a href="<?= get_site_url() ?>/product-category/tribe-merchandise/">Tribe Merchandise</a></li>
+                    <li><a href="<?= get_site_url() ?>/product-category/merchandise/">Tribe Merchandise</a></li>
                     <li><a href="<?= get_site_url() ?>/about-us/">About Us</a></li>
                     <li><a href="<?= get_site_url() ?>/faqs/">FAQS</a></li>
                 </ul>

@@ -14,62 +14,7 @@
 </div><!-- #content -->
 
 
-<div class="grid-container footer-1">
-    <div class="<?php if ((get_queried_object_id() == 7441 || get_queried_object_id() == 13175)) {
-        echo 'primary-background';
-    } else {
-        echo 'trust-background';
-    } ?>">
-        <div class="content">
-            <?php
-            if (get_queried_object_id() != 7441 && get_queried_object_id() != 13175) {
-                ?>
-                <div class="grid-x">
-                    <div class="cell large-shrink medium-12 small-12 pad-all-10">
-                        <img class="wp-image-5396 aligncenter" src="https://pawprintfamily.com/wp-content/uploads/2020/02/Pawprint-Trust-300x129.png" alt="" width="300" height="129"/>
-                    </div>
-                    <div class="cell large-auto pad-all-10">
-                        <p>
-                            Do you have a project that needs some extra funds? A young person planning an international trip but stuck with their fundraising? Then we have the help that you need!
-                        </p>
-                        <p>
-                            Do you have a project that needs some extra funds? A young person planning an international trip but stuck with their fundraising? Then we have the help that you need!
-                        </p>
-                    </div>
-                    <div class="cell large-auto medium-12 small-12 pad-all-10">
-                        <p>
-                            Do you have a project that needs some extra funds? A young person planning an international trip but stuck with their fundraising? Then we have the help that you need!
-                        </p>
 
-                        <p>
-                            Click on the button below to find out how the Pawprint Trust can help you.
-                            <a href="/pawprint-trust/" class="pp-btn navy">Find out more</a>
-                        </p>
-
-                    </div>
-                </div>
-                <?php
-            } else {
-                ?>
-                <div class="grid-x">
-                    <div class="cell large-shrink medium-shrink small-12 pad-all-10">
-                        <img class="wp-image-5396 aligncenter" src="https://pawprintfamily.com/wp-content/uploads/2020/03/Family-Brands-Image-1.png" alt="" width="506" height="170"/>
-                    </div>
-                    <div class="cell large-auto medium-auto small-12 pad-all-10" style="padding-top: 20px; line-height:1.5;">
-                        <p>
-                            A percentage of profits from each sale goes into the Pawprint Trust. Find out more about the brands by clicking below.
-                            <a href="/product-category/badges/" class="pp-btn pink">Find out more</a>
-                        </p>
-                    </div>
-
-                </div>
-                <?php
-            }
-            ?>
-        </div>
-    </div>
-
-</div>
 <div class="ruler"></div>
 <div class="grid-container footer-2">
     <div class="grid-x">
@@ -136,6 +81,63 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="grid-container footer-1">
+    <div class="<?php if ((get_queried_object_id() == 7441 || get_queried_object_id() == 13175)) {
+        echo 'primary-background';
+    } else {
+        echo 'trust-background';
+    } ?>">
+        <div class="content">
+            <?php
+            if (get_queried_object_id() != 7441 && get_queried_object_id() != 13175) {
+                ?>
+                <div class="grid-x">
+                    <div class="cell large-shrink medium-12 small-12 pad-all-10">
+                        <img class="wp-image-5396 aligncenter" src="https://pawprintfamily.com/wp-content/uploads/2020/02/Pawprint-Trust-300x129.png" alt="" width="300" height="129"/>
+                    </div>
+                    <div class="cell large-auto pad-all-10">
+                        <p>
+                            Do you have a project that needs some extra funds? A young person planning an international trip but stuck with their fundraising? Then we have the help that you need!
+                        </p>
+                        <p>
+                            Do you have a project that needs some extra funds? A young person planning an international trip but stuck with their fundraising? Then we have the help that you need!
+                        </p>
+                    </div>
+                    <div class="cell large-auto medium-12 small-12 pad-all-10">
+                        <p>
+                            Do you have a project that needs some extra funds? A young person planning an international trip but stuck with their fundraising? Then we have the help that you need!
+                        </p>
+
+                        <p>
+                            Click on the button below to find out how the Pawprint Trust can help you.
+                            <a href="/pawprint-trust/" class="pp-btn navy">Find out more</a>
+                        </p>
+
+                    </div>
+                </div>
+                <?php
+            } else {
+                ?>
+                <div class="grid-x">
+                    <div class="cell large-shrink medium-shrink small-12 pad-all-10">
+                        <img class="wp-image-5396 aligncenter" src="https://pawprintfamily.com/wp-content/uploads/2020/03/Family-Brands-Image-1.png" alt="" width="506" height="170"/>
+                    </div>
+                    <div class="cell large-auto medium-auto small-12 pad-all-10" style="padding-top: 20px; line-height:1.5;">
+                        <p>
+                            A percentage of profits from each sale goes into the Pawprint Trust. Find out more about the brands by clicking below.
+                            <a href="/product-category/badges/" class="pp-btn pink">Find out more</a>
+                        </p>
+                    </div>
+
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+
 </div>
 
 <footer>
