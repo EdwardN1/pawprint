@@ -4,10 +4,14 @@
   background-position: bottom right !important;
   background-repeat: no-repeat !important;
 }
-.jamie-charlotte-welcome {
-  > div {
+.jamie-charlotte-welcome.vc_column_container {
+  > div.vc_column-inner {
     background-position: right bottom;
-    background-size: 35%;
+    background-size: 0%;
     background-repeat: no-repeat;
+    @include breakpoint(625) {
+      background-size: 35%;
+      display: block;
+    }
   }
 }

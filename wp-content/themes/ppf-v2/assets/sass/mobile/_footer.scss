@@ -61,6 +61,8 @@
       display: block;
       .accordion {
         background: $primary-blue;
+        padding-left: 0.4em;
+        padding-right: 0.4em;
       }
       .accordion-content {
         background: $primary-blue;
@@ -73,9 +75,23 @@
         background-color: $primary-blue;
       }
       li.accordion-item {
-        padding-top: 0.3em;
-        padding-bottom: 0.3em;
+        padding-top: 0.8em;
+        padding-bottom: 0.8em;
         padding-left: 0.4em;
+        border-bottom: 1px solid $white;
+      }
+      .accordion-title::before {
+        content: " ";
+        border-style: solid;
+        border-width: 1px 1px 0 0;
+        height: 0.8em;
+        width: 0.8em;
+        transform: rotate(135deg);
+      }
+
+      .is-active>.accordion-title::before {
+        content: " ";
+        transform: rotate(-45deg);
       }
     }
   }

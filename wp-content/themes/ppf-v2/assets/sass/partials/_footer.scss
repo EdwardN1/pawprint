@@ -8,11 +8,14 @@ footer {
   h4 {
     color: $white;
   }
+
   background: $primary-blue;
+
   .nav-menus {
     &.mobile {
       display: none;
     }
+
     padding: 20px 0px 20px;
     color: #FFF;
     text-align: left;
@@ -49,15 +52,16 @@ footer {
     margin-left: auto;
     margin-right: auto;
     color: #FFF;
-    text-align: left;
     max-width: 1396px;
     margin-left: auto;
     margin-right: auto;
     font-size: 12px;
+    .payment {
+      text-align: left;
+    }
   }
 
 }
-
 
 
 .footer-top-part {
@@ -301,29 +305,51 @@ span.wpcf7-not-valid-tip {
   display: none !important;
 }
 
-.footer-row-1   {
+.footer-row-1 {
   .block {
     background-color: $trust;
   }
 }
+
+.footer-1 {
+  p {
+    line-height: 1.1;
+  }
+}
+
 .footer-2 {
-    .testimonials {
+  .right-divider:after {
+    background-color: transparent;
+    @include breakpoint(625) {
+      background-color: $primary-blue;
+    }
+
+  }
+
+  .testimonials {
     padding-left: 10px;
+
+    hr {
+      margin: 0.5rem auto;
+    }
+
     h2 {
       color: $primary-blue;
       background-size: contain;
       background-repeat: no-repeat;
       padding-top: 20px;
-      padding-right: 20px;
+      //padding-right: 20px;
       padding-bottom: 40px;
       font-family: 'billy-regular';
-      font-size: 30px;
+      font-size: 24px;
       line-height: 1em;
     }
+
     p {
       margin: 0px;
       font-size: 14px;
       color: $primary-blue;
+      line-height: 1.1;
 
       &.content {
         position: relative;
@@ -355,25 +381,31 @@ span.wpcf7-not-valid-tip {
       }
     }
   }
+
   .subscribe-form {
     padding-right: 10px;
+
     h3 {
       color: $primary-blue;
       background-size: contain;
       background-repeat: no-repeat;
       font-family: 'billy-regular';
-      font-size: 30px;
+      font-size: 24px;
       line-height: 1em;
       padding-top: 20px;
+      padding-bottom: 10px;
     }
+
     p {
       color: $primary-blue;
       font-size: 14px;
       padding-top: 10px;
+
       a {
         text-decoration: underline;
       }
     }
+
     input[type="email"] {
       margin: 0;
       width: 100%;
@@ -382,10 +414,14 @@ span.wpcf7-not-valid-tip {
       font-size: 14px;
       height: auto;
       display: inline-block;
+      border-color: rgb(224, 224, 224);
+      color: rgb(127, 127, 127);
+
       &:first-line {
         display: inline-block;
       }
     }
+
     input[type="submit"] {
       padding: 9px 35px !important;
       display: block;
@@ -403,10 +439,12 @@ span.wpcf7-not-valid-tip {
       line-height: 1.6;
       font-size: 16px;
       display: inline-block;
+
       &:first-line {
         display: inline-block;
       }
     }
+
     .ajax-loader {
       display: none;
     }

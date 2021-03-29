@@ -23,7 +23,12 @@
         </div>
         <div class="cell large-6 medium-12 small-12 pad-all-10 testimonials">
             <div class="grid-x">
-                <div class="cell large-shrink medium-shrink small-12" style="max-width: 200px;">
+                <div class="cell large-shrink medium-shrink small-12 hide-for-medium">
+                    <h2 style="text-align: center; padding: 10px;">
+                        What our <?= (get_queried_object_id() != 7441) ? 'customers' : 'recipients' ?> say...
+                    </h2>
+                </div>
+                <div class="cell large-shrink medium-shrink small-12 show-for-medium" style="max-width: 200px;">
                     <h2 style="background-image: url(/wp-content/uploads/2020/02/pawprint-icon.png);">
                         What our<br/><?= (get_queried_object_id() != 7441) ? 'customers' : 'recipients' ?> say...
                     </h2>
@@ -168,8 +173,8 @@
         </div>
     </div>
     <div class="nav-menus mobile">
-        <ul class="accordion" data-accordion>
-            <li class="accordion-item is-active" data-accordion-item>
+        <ul class="accordion" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+            <li class="accordion-item" data-accordion-item>
                 <a href="#" class="accordion-title"><h4><?php echo wp_get_nav_menu_name('footer-1'); ?></h4></a>
                 <div class="accordion-content" data-tab-content>
                      <?php echo pawp_footer_nav('footer-1');?>
@@ -198,13 +203,12 @@
     <div class="copyright">
         <hr>
         <div class="grid-x">
-            <div class="cell auto payment">
+            <div class="cell large-auto medium-auto small-12 payment">
                 <div class="grid-x">
-                    <div class="cell shrink" style="line-height: 50px;">Payment methods:&nbsp;&nbsp;</div>
                     <div class="cell auto"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/cardpayments.png"></div>
                 </div>
             </div>
-            <div class="cell text-right shrink notice" style="line-height: 50px;">
+            <div class="cell large-shrink medium-shrink small-12 notice" style="line-height: 50px;">
                 &copy; Pawprint Family <?php echo date('Y'); ?>
             </div>
         </div>
