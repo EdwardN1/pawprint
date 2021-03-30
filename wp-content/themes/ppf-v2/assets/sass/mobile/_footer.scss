@@ -61,8 +61,8 @@
       display: block;
       .accordion {
         background: $primary-blue;
-        padding-left: 0.4em;
-        padding-right: 0.4em;
+        padding-left: 1.2em;
+        padding-right: 1.2em;
       }
       .accordion-content {
         background: $primary-blue;
@@ -71,12 +71,13 @@
       .accordion-title {
         border: none;
       }
+
       .accordion-title:hover, .accordion-title:focus {
         background-color: $primary-blue;
       }
       li.accordion-item {
-        padding-top: 0.8em;
-        padding-bottom: 0.8em;
+        padding-top: 1.2em;
+        padding-bottom: 1.2em;
         padding-left: 0.4em;
         border-bottom: 1px solid $white;
       }

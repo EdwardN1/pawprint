@@ -103,18 +103,10 @@
                         <img class="wp-image-5396 aligncenter" src="https://pawprintfamily.com/wp-content/uploads/2020/02/Pawprint-Trust-300x129.png" alt="" width="300" height="129"/>
                     </div>
                     <div class="cell large-auto pad-all-10">
-                        <p>
-                            Do you have a project that needs some extra funds? A young person planning an international trip but stuck with their fundraising? Then we have the help that you need!
-                        </p>
-                        <p>
-                            Do you have a project that needs some extra funds? A young person planning an international trip but stuck with their fundraising? Then we have the help that you need!
-                        </p>
+                        <?php echo wpautop(get_option('paw-trust-col-1'))?>
                     </div>
                     <div class="cell large-auto medium-12 small-12 pad-all-10">
-                        <p>
-                            Do you have a project that needs some extra funds? A young person planning an international trip but stuck with their fundraising? Then we have the help that you need!
-                        </p>
-
+                        <?php echo wpautop(get_option('paw-trust-col-2'))?>
                         <p>
                             Click on the button below to find out how the Pawprint Trust can help you.
                             <a href="/pawprint-trust/" class="pp-btn navy">Find out more</a>
@@ -201,7 +193,6 @@
         </ul>
     </div>
     <div class="copyright">
-        <hr>
         <div class="grid-x">
             <div class="cell large-auto medium-auto small-12 payment">
                 <div class="grid-x">

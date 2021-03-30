@@ -326,24 +326,50 @@ span.wpcf7-not-valid-tip {
 
   }
 
+  h2 {
+    color: $primary-blue;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-top: 20px;
+    //padding-right: 20px;
+    font-family: 'billy-regular';
+    font-size: 24px;
+    line-height: 1em;
+  }
+
+  .subscribe-form {
+    border-bottom: 1px solid $primary-blue;
+    @include breakpoint(625) {
+      border-bottom: none;
+    }
+    h2 {
+      text-align: center;
+      padding-bottom: 0.5em;
+      @include breakpoint(625) {
+        text-align: left;
+        padding-bottom: 0.5em;
+      }
+    }
+  }
+
   .testimonials {
-    padding-left: 10px;
+    padding-left: 0;
+    @include breakpoint(625) {
+      padding-left: 10px;
+    }
+    h2 {
+      padding-bottom: 40px;
+      text-align: center;
+      @include breakpoint(625) {
+        text-align: left;
+      }
+    }
 
     hr {
       margin: 0.5rem auto;
     }
 
-    h2 {
-      color: $primary-blue;
-      background-size: contain;
-      background-repeat: no-repeat;
-      padding-top: 20px;
-      //padding-right: 20px;
-      padding-bottom: 40px;
-      font-family: 'billy-regular';
-      font-size: 24px;
-      line-height: 1em;
-    }
+
 
     p {
       margin: 0px;
