@@ -1,0 +1,34 @@
+.pp-btn{
+  margin: 10px 0 0 0;
+  padding: 9px 12.5px !important;
+  display: block;
+  clear: both;
+  text-decoration: none;
+  text-align: center;
+  font-family: 'billy-regular';
+  box-sizing: border-box;
+  border: 0px !important;
+  border-radius: 0px !important;
+  font-size: 1rem !important;
+  cursor: pointer !important;
+
+  &:disabled{
+    background: grey !important;
+    color: white !important;
+  }
+
+  &:hover{
+    text-decoration: underline;
+  }
+
+  &.navy{ background: $primary-blue; color: #FFF; }
+  &.pink{ background: $badges; color: #FFF; }
+  &.teal{ background: $trails; color: #FFF; }
+  &.yellow{ background: $tales; color: #FFF; }
+  &.orange{ background: $trust; color: #FFF; }
+
+  &.link-pink{
+    background: none; color: $badges; text-decoration: underline !important;
+  }
+
+}

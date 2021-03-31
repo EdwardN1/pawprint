@@ -1,0 +1,64 @@
+#page{
+  max-width: 1396px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: block;
+  clear: both;
+}
+
+
+
+.content-area{
+  padding: 0 15px;
+}
+
+.content-area{
+  font-family: 'Tajawal';
+}
+
+.page-content, .entry-content, .entry-summary{
+  margin: 0px;
+}
+
+.wpb_button, .wpb_content_element, ul.wpb_thumbnails-fluid>li{
+  margin-bottom: 0px !important;
+}
+
+input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], select, textarea, .field {
+  display: block;
+  height: 40px;
+  line-height: 1em;
+  padding: 0 1%;
+  margin-bottom: 0;
+  font-size: 1em;
+  border-radius: 0;
+  vertical-align: middle;
+  box-shadow: none;
+  width: 98%;
+  transition: background-color 0.24s ease-in-out;
+  border: 1px solid #4d4d4d;
+}
+
+.edit-form {
+  width: 100%;
+  max-width: 600px;
+  float: left;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.post, .page{
+  margin-bottom: 0px;
+}
+
+.search-results ul li.downloadable h2{
+  min-height: 118px !important;
+}
+
+.stories-block blockquote{
+  margin: 0px;
+  padding: 0px;
+  display: none;
+}

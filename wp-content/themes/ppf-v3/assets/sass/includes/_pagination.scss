@@ -1,0 +1,61 @@
+nav.pagination,
+.woocommerce-pagination{
+  margin: 10px 0px;
+  text-align: center;
+
+  .nav-links{
+    display: inline-block;
+  }
+
+  a,
+  span{
+    padding: 5px;
+    display: inline-block;
+    min-width: 2em;
+    text-decoration: none;
+    color: #000000;
+
+    &.current{
+      background-color: #FFC610;
+      color: #000000;
+    }
+
+    &.prev,
+    &.next {
+      color: #fff;
+      background-color: #EA288F;
+    }
+
+  }
+
+  ul{
+    border: 0px !important;
+
+    li{
+      border: 0px !important;
+
+      a,span{
+        padding: 10px 5px !important;
+        display: inline-block;
+        min-width: 2em !important;
+        text-decoration: none;
+        color: #000000;
+
+        &.current{
+          background-color: #FFC610 !important;
+          color: #000000 !important;
+        }
+
+        &.prev,
+        &.next {
+          color: #fff !important;
+          background-color: #EA288F !important;
+        }
+
+      }
+
+    }
+
+  }
+
+}

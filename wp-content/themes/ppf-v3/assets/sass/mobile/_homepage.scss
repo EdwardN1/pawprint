@@ -1,0 +1,23 @@
+@media only screen and (max-width: 625px) {
+
+  .homepage-banner-text-block > .vc_column-inner {
+    padding-right: 15px !important;
+    background: none !important;
+  }
+
+  .hompage-colour-block {
+
+    .vc_col-sm-9 {
+      width: 75%;
+      float: left;
+    }
+
+    .vc_col-sm-3 {
+      width: 25%;
+      float: left;
+    }
+
+  }
+
+
+}

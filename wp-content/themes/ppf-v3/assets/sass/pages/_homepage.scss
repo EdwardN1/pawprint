@@ -1,0 +1,17 @@
+.homepage-banner-text-block > .vc_column-inner{
+  padding-right: 300px !important;
+  background-size: 350px auto !important;
+  background-position: bottom right !important;
+  background-repeat: no-repeat !important;
+}
+.jamie-charlotte-welcome.vc_column_container {
+  > div.vc_column-inner {
+    background-position: right bottom;
+    background-size: 0%;
+    background-repeat: no-repeat;
+    @include breakpoint(625) {
+      background-size: 35%;
+      display: block;
+    }
+  }
+}

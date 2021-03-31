@@ -1,0 +1,352 @@
+#add_payment_method .wc-proceed-to-checkout a.checkout-button, .woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt{
+    background: #172A53 !important;
+}
+
+.wpmc-step-item.wpmc-step-login{
+    width: calc(100% - 400px);
+    float: left;
+}
+
+.woocommerce-MyAccount-navigation-link--my-pre-orders,
+.woocommerce-MyAccount-navigation-link--customer-logout{
+    display: none !important;
+}
+
+.woofc-area.woofc-style-02 .woofc-area-bot .woofc-action .woofc-action-inner > div a, .woofc-area.woofc-style-04 .woofc-area-bot .woofc-action .woofc-action-inner > div a{
+    background: #172A53 !important;
+    color: #FFF !important;
+    border: 0px !important;
+    font-family: 'billy-regular';
+    line-height: 3em !important;
+}
+
+.woofc-area.woofc-style-02 .woofc-area-bot .woofc-action .woofc-action-inner > div a:hover,
+.woofc-area.woofc-style-04 .woofc-area-bot .woofc-action .woofc-action-inner > div a:hover{
+    text-decoration: underline !important;
+}
+
+.woofc-continue{
+    display: none !important;
+}
+
+.woofc-area.woofc-style-02 .woofc-area-mid .woofc-item .woofc-item-inner .woofc-item-thumb img{
+    object-fit: contain !important;
+}
+
+.woofc-area.woofc-style-02 .woofc-area-mid .woofc-item .woofc-item-inner .woofc-item-info .woofc-item-title span{
+    font-weight: normal !important;
+}
+
+.woocommerce table.shop_table td mark{
+    display: none !important;
+}
+
+.woocommerce-info{
+    border-color: #172A53 !important;
+}
+
+.woocommerce-info::before{
+    color: #172A53 !important;
+}
+
+header#masthead .header-top-section .search-container input[type="text"], header#masthead .header-top-section .search-container input[type="search"]{
+    outline: none !important;
+}
+
+.woocommerce ul.products li.product .button{
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+@media only screen and (max-width: 600px){
+
+    h1{
+        text-align: center;
+    }
+
+    .wpmc-step-item.wpmc-step-login{
+        width: 100%;
+    }
+
+    .fabfw-addresses-container a.button{
+        width: 100% !important;
+    }
+
+    .woocommerce-MyAccount-navigation-link small{
+        min-height: 50px;
+    }
+
+    .footer-top-part .left .block:first-of-type{
+     padding: 20px 0 0;
+    }
+
+    .woocommerce table.shop_table strong, .shipping-date, .woofc-area strong{
+        font-size: 16px !important;
+    }
+
+    .woocommerce table.shop_table_responsive tr, .woocommerce-page table.shop_table_responsive tr{
+        border: 0px !important;
+    }
+
+    .mobile-account a{
+        font-family: 'Tajawal', sans-serif !important;
+    }
+
+    .badge-block-challenge-pack{
+        width: 100%;
+        display: block;
+        clear: both;
+        text-align: center;
+    }
+
+    header #site-navigation form input[type="search"]{
+        border-radius: 0px !important;
+        -webkit-appearance: none;
+        outline: none !important;
+    }
+
+
+}
+
+.menu-black-block{
+    background: rgba(0,0,0,0.5);
+    width: 100vw;
+    position: absolute;
+    left: 0px;
+    z-index: 100;
+    display: none;
+}
+
+.woofc-area.woofc-style-02 .woofc-area-mid .woofc-item:hover .woofc-item-inner{
+    margin-left: 0px !important;
+}
+
+.woofc-area.woofc-style-02 .woofc-area-mid .woofc-item:hover .woofc-item-inner .woofc-item-remove,
+.woofc-area.woofc-style-02 .woofc-area-mid .woofc-item:hover .woofc-item-inner .woofc-item-special,
+.woofc-area.woofc-style-02 .woofc-area-mid .woofc-item:hover .woofc-item-inner .woofc-item-remove span{
+    -webkit-transform: none !important;
+    transform: none !important;
+}
+
+button[name='update_cart']:disabled{
+    background: #eee !important;
+    color: #000 !important;
+}
+
+button[name='update_cart']{
+    background: #172A53 !important;
+    color: #FFF !important;
+}
+
+.challenge_pack_download_actions{
+    display: flex;
+    margin: 0 -5px 20px;
+}
+
+.or_line{
+    width: 100%;
+    height: 50px;
+    display: block;
+    clear: both;
+    position: relative;
+    text-align: center;
+}
+
+.or_line:before{
+    width: 100%;
+    height: 2px;
+    background: #172A53;
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 0px;
+}
+
+.or_line p{
+    height: 50px;
+    line-height: 50px;
+    font-size: 46px;
+    font-family: 'billy-regular';
+    color: #172A53;
+    display: inline-block;
+    background: #FFF;
+    padding: 0 20px;
+    margin: 0px !important;
+    position: relative;
+    z-index: 10;
+}
+
+.challenge_pack_download_actions a{
+    flex: 1;
+    margin: 0 5px;
+    background-color: #172A53;
+    color: #fff;
+    display: block;
+    text-align: center;
+    font-family: 'billy-regular';
+    border-radius: 0px !important;
+    margin-top: 0px !important;
+    padding: 10.5px 20.5px !important;
+    text-decoration: none !important;
+}
+
+.challenge_pack_download_actions a:hover{
+    text-decoration: underline !important;
+}
+
+/** 26 June 2020 */
+
+.search-results .image-container{
+    min-height: 288px !important;
+}
+
+.woocommerce div.product form.cart .button{
+    letter-spacing: 1px !important;
+}
+
+.woocommerce-product-gallery__image > a + img{
+    display: none !important;
+}
+
+.woocommerce div.product div.images .flex-control-thumbs{
+    float: left;
+}
+
+.woocommerce-product-gallery .flex-viewport{
+    float: right;
+}
+
+.woocommerce div.product .product_title{
+    margin-bottom: 10px;
+}
+
+.woofc-area.woofc-style-02 .woofc-area-mid .woofc-item:hover .woofc-item-inner .woofc-item-remove{
+    margin: 5px 0 0 10px !important;
+}
+
+.woofc-total:first-of-type{
+    display: flex !important;
+}
+
+.cart-delivery-date{
+    font-size: 15px !important;
+}
+
+.woofc-area.woofc-style-02 .woofc-area-bot .woofc-action .woofc-action-inner > div a{
+    letter-spacing: 1px;
+}
+.product-name a{
+    display: block;
+    clear: both;
+}
+
+.challenge_pack_download_actions{
+    display: block;
+    clear: both;
+}
+
+.challenge_pack_download_actions:after{
+    display: block;
+    clear: both;
+    content: ' ';
+}
+
+.challenge_pack_download_actions a{
+    width: calc(50% - 10px);
+    flex: initial;
+    float: left;
+}
+
+.contact-form + .wpcf7-response-output {
+    margin: -42px auto 0;
+    width: 90%;
+    color: yellow;
+}
+
+span.wpcf7-not-valid-tip {
+    width: 100%;
+    position: absolute;
+    top: -20px;
+    right: 0px;
+    left: initial;
+    line-height: 1em;
+    color: yellow;
+}
+
+.page-id-8 #breadcrumbs{
+    display: none !important;
+}
+
+.contact-form label span{
+    color: yellow !important;
+}
+
+.ppf_side_order_review .items .item img{
+    width: 40px;
+    height: 40px;
+    object-fit: contain !important;
+}
+
+.woocommerce #content table.cart img, .woocommerce table.cart img, .woocommerce-page #content table.cart img, .woocommerce-page table.cart img{
+    width: 59px;
+    height: 59px;
+    object-fit: contain !important;
+    display: block;
+}
+
+.product-thumbnail a{
+    width: 59px;
+    height: 59px;
+}
+
+.woofc-item-title span{
+    display: block;
+    clear: both;
+}
+
+@media only screen and (max-width: 700px){
+
+    .challenge_pack_download_actions a{
+        width: 100%;
+        margin: 0 0 10px;
+    }
+
+    .woocommerce table.shop_table{
+        margin: 0 -20px !important;
+        width: calc(100% + 40px);
+    }
+
+}
+
+.product-name div{
+    content: ' ' !important;
+    text-indent: -9999px;
+    height: 0px !important;
+}
+
+.woocommerce .woocommerce-ordering select{
+    appearance: none !important;
+    -webkit-appearance: none !important;
+}
+
+.woocommerce .woocommerce-ordering{
+    position: relative;
+}
+
+.woocommerce .woocommerce-ordering:after{
+    width: 10px;
+    height: 10px;
+    border-width: 1px 1px 0px 0px;
+    border-style: solid;
+    border-color: black;
+    transform: rotate(135deg);
+    content: ' ';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.woofc-area.woofc-style-02 .woofc-area-mid .woofc-item {
+    height: 70px !important;
+}

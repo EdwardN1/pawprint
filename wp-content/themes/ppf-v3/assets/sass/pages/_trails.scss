@@ -1,0 +1,159 @@
+#trails-search-form{
+  padding: 10px 0px 30px;
+  text-align: center;
+  border-width: 1px 0px;
+  border-style: solid;
+  border-color: #dadada;
+  margin: 30px -15px 0px;
+
+  h2{
+    color: $primary-blue;
+  }
+
+  &:after{
+    display: block;
+    clear: both;
+    content: ' ';
+  }
+
+  label{
+    text-align: center;
+    width: 40%;
+    display: inline-block;
+    margin: 20px 2% 0;
+    color: $primary-blue;
+  }
+
+  button{
+    margin-top: 30px;
+    padding: 12px !important;
+    width: 200px;
+    display: inline-block;
+  }
+
+}
+
+.trails-search-form-errors,
+.trails-search-form-response-content-errors{
+  p{
+    font-weight: bold;
+    color: red;
+    margin: 10px 0 0;
+    display: block;
+    clear: both;
+  }
+}
+
+.trails-search-form-response{
+  margin: 0 -15px;
+
+  .trails-search-form-response-content{
+    padding: 30px 0 30px;
+    border-width: 0px 0px 1px;
+    border-style: solid;
+    border-color: #dadada;
+    text-align: center;
+
+    &.success{
+
+      h2{
+        color: $trails;
+      }
+
+    }
+
+    form{
+      margin-top: 20px;
+      display: block;
+      clear: both;
+
+      label{
+        width: 30%;
+        padding: 0 10px 20px;
+        box-sizing: border-box;
+        display: inline-block;
+      }
+
+      button{
+        margin-top: 30px;
+        padding: 12px !important;
+        width: 200px;
+        display: inline-block;
+      }
+
+    }
+
+  }
+
+}
+
+.trails-questions-success{
+
+  .inner{
+    padding: 30px 0 30px;
+    border-width: 0px 0px 1px;
+    border-style: solid;
+    border-color: #dadada;
+    text-align: center;
+  }
+
+  h2{
+    color: $trails;
+  }
+
+}
+
+.extend-products ul{
+  text-align: center;
+
+  li{
+    display: inline-block;
+    float: none !important;
+  }
+
+}
+
+.extend-adventure{
+  padding: 30px 0px 30px;
+  text-align: center;
+
+  h2{
+    color: $primary-blue;
+  }
+
+}
+
+.region_map path{
+  cursor: pointer !important;
+  transition: fill ease-in-out 300ms;
+}
+
+.region_map{
+  display: block;
+  clear: bottom;
+  margin: 0 auto;
+}
+
+.trails_map_results{
+  width: 100%;
+  display: block;
+  clear: bottom;
+  margin-left: -15px;
+  background: #eee;
+  padding-bottom: 15px;
+  transition: background ease-in-out 300ms;
+
+  .region{
+    padding: 15px;
+    color: #FFF;
+  }
+
+  .inner{
+    background: #FFF;
+    margin: 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    min-height: 690px;
+  }
+
+}
