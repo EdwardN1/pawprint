@@ -71,7 +71,12 @@
         ga('send', 'pageview');
 
     </script>
-
+    <?php
+    $paw_cookie_script = get_option('paw-cookie-script');
+    if($paw_cookie_script != '') {
+        echo $paw_cookie_script;
+    }
+    ?>
 </head>
 
 <body <?php body_class(); ?>>

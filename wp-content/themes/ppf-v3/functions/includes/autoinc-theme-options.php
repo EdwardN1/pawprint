@@ -6,6 +6,9 @@ function pawprint_register_settings()
     register_setting('paw_footer_management_group', 'paw-trust-col-1');
     add_option('paw-trust-col-2', '<h2>Right Column Content</h2><p>Enter your content here</p>');
     register_setting('paw_footer_management_group', 'paw-trust-col-2');
+
+    add_option('paw-cookie-script', '');
+    register_setting('paw_options_management_group', 'paw-cookie-script');
 }
 
 add_action('admin_init', 'pawprint_register_settings');
@@ -80,6 +83,22 @@ function ppf_menu_options_page()
         <?php endif; ?>
         <?php if ($active_tab == 'options_management'): ?>
             <h1>Options Management</h1>
+            <h2>
+                Cookies Section
+            </h2>
+        <p> Please head over to <a href="https://www.websitepolicies.com/create/cookie-consent-banner" target="_blank">https://www.websitepolicies.com/create/cookie-consent-banner</a>  and create a Cookie Banner Script to paste below:</p>
+            <form method="post" action="options.php">
+                <?php settings_fields('paw_options_management_group'); ?>
+                <table class="form-table">
+                    <tr>
+                        <th><label for="paw-cookie-script">Cookie Consent Script</label></th>
+                        <td>
+                            <textarea name="paw-cookie-script" id="paw-cookie-script" class="widefat" rows="10"><?php echo get_option('paw-cookie-script');?></textarea>
+                        </td>
+                    </tr>
+                </table>
+                <?php submit_button(); ?>
+            </form>
         <?php endif; ?>
         <?php if ($email === 'edward@technicks.com'): ?>
             <?php if ($active_tab == 'pawprint_restricted_settings'): ?>
