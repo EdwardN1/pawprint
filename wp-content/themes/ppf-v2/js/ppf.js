@@ -504,7 +504,8 @@
     //console.log($('header#masthead').outerHeight());
 
     $('.menu-black-block').height($('body').height() - $('header#masthead').outerHeight() - 32);
-    $('.menu-black-block').css('top' , $('header#masthead').outerHeight()+32);
+    $('.menu-black-block').css('top' , $('header#masthead').outerHeight());
+    //$('.menu-black-block').css('top' , '100px');
 
     $('.has-dropdown').hover(function () {
 

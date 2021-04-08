@@ -12,6 +12,7 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+<!--Header-->
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -190,6 +191,7 @@
                     <li><a href="<?= get_site_url() ?>/product-category/tribe-merchandise/">Tribe Merchandise</a></li>
                     <li><a href="<?= get_site_url() ?>/about-us/">About Us</a></li>
                     <li><a href="<?= get_site_url() ?>/faqs/">FAQS</a></li>
+
                 </ul>
                 <?php //echo get_search_form() ?>
                 <div class="mobile-account">

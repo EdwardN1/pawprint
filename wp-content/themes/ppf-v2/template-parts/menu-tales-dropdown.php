@@ -28,7 +28,13 @@ $tales = new WP_Query(
                 if($tales->have_posts()){
                     while ($tales->have_posts()){ $tales->the_post();
                         //echo '<a href="'.get_the_permalink($tales->post->ID).'"><img src="'.get_the_post_thumbnail_url($tales->post->ID).'" alt=""></a>';
-                        echo '<a href="'.get_the_permalink($tales->post->ID).'"><img src="'.get_the_post_thumbnail($tales->post->ID, 'thumbnail').'</a>';
+                        //echo '<a href="'.get_the_permalink($tales->post->ID).'"><img src="'.get_the_post_thumbnail($tales->post->ID, 'thumbnail').'</a>';
+                        $img_attribs = wp_get_attachment_image_src(get_post_thumbnail_id($tales->post->ID), 'thumbnail'); // returns an array
+                        if ($img_attribs) {
+                            ?>
+                            <a href="<?php echo get_the_permalink($tales->post->ID);?>"><img src="<?php echo $img_attribs[0]; ?>" width="<?php echo $img_attribs[1]; ?>" height="<?php echo $img_attribs[2]; ?>"></a>
+                            <?php
+                        }
                     }
                 }
             ?>
