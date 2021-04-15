@@ -16,7 +16,19 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+
+$currency = $order->get_order_currency();
+$total = $order->get_subtotal();
+$date = $order->order_date;
+//error_log('Thank Page Hook Fired');
 ?>
+<!-- Paste Tracking Code Under Here -->
+<script type="text/javascript">
+    //window.console.log('FB Pixel Event');
+    fbq('track', 'Purchase', {currency: "<?php echo $currency;?>", value: <?php echo $total; ?>});
+</script>
+
+<!-- End Tracking Code -->
 
 <div class="woocommerce-order">
 
@@ -209,10 +221,10 @@ defined( 'ABSPATH' ) || exit;
                     </div>
                 </div>
                 <?php
+                if(!empty($dates)){
                 $date = max($dates);
                 $dateFormat = date('F d, Y' , $date);
-                if(!empty($dates)){
-                    echo '<p class="cart-delivery-date">Based on the products that are in your basket, the estimated dispatch date for your order is:<br/>'.$dateFormat.'</p>';
+                echo '<p class="cart-delivery-date">Based on the products that are in your basket, the estimated dispatch date for your order is:<br/>'.$dateFormat.'</p>';
                 }
                 ?>
             </div>
