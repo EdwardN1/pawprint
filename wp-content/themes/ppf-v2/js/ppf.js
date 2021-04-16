@@ -174,13 +174,24 @@
 
     });
 
-    $('.product_read_more').toggle(function () {
+    $('.product_read_more').on('click',function(e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        $(this).parent().prev().toggle('slow');
+        if($(this).html()=='Read More') {
+            $(this).html('Read Less');
+        } else {
+            $(this).html('Read More');
+        }
+    });
+
+   /* $('.product_read_more').toggle(function () {
         $(this).parent().prev().slideDown();
         $(this).html('Read Less');
     } , function () {
         $(this).parent().prev().slideUp();
         $(this).html('Read More');
-    });
+    });*/
 
     $('body').on('submit' , '#trail-questions-form' , function () {
 
@@ -439,7 +450,20 @@
 
     });
 
-    $('body .stories-block a').toggle(function (e) {
+    $('body .stories-block a').on('click',function (e){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        $(this).parents('p').prev('blockquote').toggle('slow');
+        if($(this).html()=='Read More') {
+            $(this).html('Read Less');
+        } else {
+            $(this).html('Read More');
+        }
+    });
+
+    /*$('body .stories-block a').toggle(function (e) {
+
+        window.console.log('body .stories-block a toggling on');
 
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -449,13 +473,20 @@
 
     },function (e) {
 
-        e.preventDefault();
-        e.stopImmediatePropagation();
+        window.console.log('body .stories-block a toggling off');
 
-        $(this).parents('p').prev('blockquote').hide();
-        $(this).html('Read More');
+        if(e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            $(this).parents('p').prev('blockquote').hide();
+            $(this).html('Read More');
+        } else {
+            window.console.log('body .stories-block a does not exist or is hidden');
+        }
 
-    });
+
+
+    });*/
 
     var passwordMeter = '<div class="password_meter">' +
                             '<div data-strength="week"><span>Week</span></div>' +
